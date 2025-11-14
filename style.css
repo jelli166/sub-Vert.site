@@ -64,3 +64,12 @@ footer {
   color: #888;
   font-size: 0.9em;
 }
+
+.book-row img {
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.book-row img:hover {
+  transform: scale(1.05);
+}
