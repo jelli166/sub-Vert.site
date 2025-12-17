@@ -125,6 +125,7 @@
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
+<link rel="icon" type="image/png" href="images/favicon.png">
 
     <!-- Primary Container -->
     <div id="app" class="max-w-7xl mx-auto shadow-2xl shadow-black">
@@ -146,7 +147,7 @@
                     <a href="#home" onclick="showPage('home')" class="nav-link hover:text-red-300 transition duration-300">Home</a>
                     <a href="#stories" onclick="showPage('stories')" class="nav-link hover:text-red-300 transition duration-300">Stories</a>
                     <a href="#writers" onclick="showPage('writers')" class="nav-link hover:text-red-300 transition duration-300">Writers</a>
-                    <a href="#blog" onclick="showPage('blog')" class="nav-link hover:text-red-300 transition duration-300">Kai’s Blog</a>
+                    <a href="#blog" onclick="showPage('blog')" class="nav-link hover:text-red-300 transition duration-300">Links</a>
                     <a href="#contact" onclick="showPage('contact')" class="nav-link hover:text-red-300 transition duration-300">Contact</a>
                 </div>
             </nav>
@@ -155,8 +156,8 @@
             <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700/50">
                 <a href="#home" onclick="showPage('home'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Home</a>
                 <a href="#stories" onclick="showPage('stories'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Stories</a>
-                <a href="#writers" onclick="showPage('writers'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Writers</a>
-                <a href="#blog" onclick="showPage('blog'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Kai’s Blog</a>
+                <a href="#writers" onclick="showPage('writers'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Staff</a>
+                <a href="#blog" onclick="showPage('blog'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Links</a>
                 <a href="#contact" onclick="showPage('contact'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Contact</a>
             </div>
         </header>
@@ -167,32 +168,26 @@
             <!-- Shared Banner Component -->
             <div class="banner-container mb-10 shadow-xl border border-gray-700/50">
                 <img id="page-banner" class="banner-image" src="images/banner1.png" alt="Noir city banner image" onerror="this.style.backgroundColor='#4a4a4a'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-                <h1 id="banner-text" class="banner-title text-gray-50 select-none">subVERT</h1>
+                <h1 id="banner-text" class="banner-title text-gray-50 select-none">Home</h1>
             </div>
 
             <!-- HOME Page Content -->
             <section id="page-home" class="page-content">
-         
-
-<!--     
-                <h2 class="text-1xl md:text-2xl font-extrabold mb-6 tracking-tight border-b-2 border-red-300 pb-2">New Works in Progress... Free to download until their official release.</h2>
-				
-				
-				            <p class="text-lg mb-8 text-gray-400 max-w-3xl">
-                   Pre-release free downloads available here:
-				               </p>
--->                
+     
+                <h3 class="text-1xl md:text-2xl mb-6 tracking-tight border-b-2 border-red-300 pb-2">Our eBook Releases for 2026</h3>
+					            <p class="text-lg mb-8 text-gray-400 max-w-3xl"></p>
+							   
             <p class="text-lg mb-8 text-gray-400 max-w-3xl">
 
 	           </p>	
 			       <section class="book-row">
-			   		<a href="writer1.html">
-			   		  <img src="images/cover1.png" alt="Book Cover 1">
+			   		<a href="lastrain.html">
+			   		  <img src="images/cover7.png" alt="Book Cover 1">
 			   		</a>
-			   		<a href="writer2.html">
-			   		  <img src="images/cover2.png" alt="Book Cover 2">
+			   		<a href="warmblue.html">
+			   		  <img src="images/cover1.png" alt="Book Cover 2">
 			   		</a>
-			   		<a href="writer1.html">
+			   		<a href="tyundone.html">
 			   		  <img src="images/cover3.png" alt="Book Cover 3">
 			   		</a>
 			   		     </section>
@@ -203,18 +198,18 @@
                 <div class="grid md:grid-cols-3 gap-8 text-center mt-12">
                     <div class="p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg hover:shadow-red-500/20 transition duration-300">
                         <span class="text-4xl mb-3 block text-red-300" data-lucide="book-open"></span>
-                        <h3 class="text-xl font-semibold mb-2">It's all fiction, not just the stories.</h3>
-                        <p class="text-sm text-gray-400">Read the latest tales of betrayal and broken dreams.</p>
+                        <h3 class="text-xl font-semibold mb-2">For the Holiday: It's all fiction, not just the stories.</h3>
+                        <p class="text-sm text-gray-400">Awaiting the regime's demise.</p>
                     </div>
                     <div class="p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg hover:shadow-red-500/20 transition duration-300">
                         <span class="text-4xl mb-3 block text-red-300" data-lucide="feather"></span>
-                        <h3 class="text-xl font-semibold mb-2">Coming Soon: The Writers</h3>
-                        <p class="text-sm text-gray-400">Meet the voices that articulate the void.</p>
+                        <h3 class="text-xl font-semibold mb-2">Coming Soon: The Writers Revealed</h3>
+                        <p class="text-sm text-gray-400">Collaboration amidst Conflagration.</p>
                     </div>
                     <div class="p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg hover:shadow-red-500/20 transition duration-300">
                         <span class="text-4xl mb-3 block text-red-300" data-lucide="pencil"></span>
-                        <h3 class="text-xl font-semibold mb-2">Coming Soon: Kai's Blog</h3>
-                        <p class="text-sm text-gray-400">Musings from the gutter, once the snow melts.</p>
+                        <h3 class="text-xl font-semibold mb-2">January 2026: Blogs with Pretzels</h3>
+                        <p class="text-sm text-gray-400">Good weather for salty baked thoughts</p>
                     </div>
                 </div>
             </section>
@@ -235,27 +230,23 @@
 						text-4xl md:text-2xl">
 Ty Undone
 						</p>
-                        <p><i>
-A Novella by Seth Poole and Kai D. Waddell
-</i>
+                        <p><i>A Novella by Seth M. Poole and others</i>
 </p>
 <br>
 <br>
 <p>
 	<i>
-					Twenty-year-old Ty has spent the last three years drifting between temporary jobs and temporary homes, running from a brutal past in Syracuse. When he lands at Bella Adobes Nursery in Tucson, he tells himself it's just another three-month gig—until Isabella, the kind-hearted owner, becomes the mother figure he's always needed, and the desert heat starts to feel like home.
+					Twenty-year-old Ty has spent the last three years drifting between temporary nursery jobs, running from a brutal past in Syracuse. When he lands at the Bella Adobe in Tucson, he tells himself it's just another three-month gardener gig although Isabella, the owner, makes it feel like home.
+				</p><br><p>
+					Then a young guy shows up one morning and walks in with a job. Ben is twenty-nine, talented, with a quiet confidence, and an introvert. But beneath that charm, he's a bit adrift, going through the motions of a successful career while wondering why nothing and no one feels quite right. When he hires the quirky, sharp-tongued Ty to design some planters for his balcony, neither expects the connection that sparks between them.
 </p><br><p>
-					Then Ben Nakamura walks into the nursery.
-</p><br><p>
-					Ben is twenty-nine, talented, and carries himself with the quiet confidence of someone who has life figured out. But beneath his polished exterior, he's adrift too—going through the motions of a successful career while wondering why nothing feels quite right. When he hires the quirky, sharp-tongued Ty to design custom planters for his balcony, neither expects the connection that sparks between them.
-</p><br><p>
-					What begins as casual dinners and art gallery visits becomes something neither can ignore. But Ty has spent years protecting his heart, and Ben has never questioned the straight path he thought his life would take. As their friendship deepens into something more, both must confront difficult truths: Can Ty trust someone enough to stay? Can Ben embrace who he really is, and risk everything he's built?
-</p><br><p>
-					In the glow of Arizona sunsets and over shared meals at Ana's Diner, two wounded souls discover that love doesn't always announce itself with fireworks—sometimes it arrives quietly, like a seed taking root in unexpected soil. This tender, slow-burn romance explores the courage it takes to choose love when the world expects you to choose something else.
+					What begins as "hanging out", casual dinners and art gallery visits becomes something neither can ignore. But Ty has spent years protecting his heart, and Ben has never questioned the straight path he thought his life would take. As their friendship deepens into something more, both must confront difficult truths: Can Ty trust someone enough to stay? Can Ben figure it all out? What he's feeling?
+				</p><br><p>
+					In the glow of desert sunsets and mexican food at Ana's Diner, two quiet souls discover that love doesn't always announce itself with a fireworks finale. Sometimes it arrives quietly but with a longing that can't be ignored. This tender, slow-burn romance explores the courage it takes to choose love when the world has taught you otherwise.
 					</p><br><p>
 Release Date: December 22, 2025
 </p><br><p>
-Contact writerkai@proton.me for a pre-release full length PDF.
+Contact writerkai@proton.me to download.
 							</i></p>
                     </div>
                 </div>
@@ -287,7 +278,7 @@ Confined to the small, rocking cabin and stripped bare by exhaustion and fear, t
 					</p><br><p>
 Release Date: Early Spring 2026
 </p><br><p>
-Contact writerkai@proton.me for a pre-release full length PDF.
+Contact writerkai@proton.me for more information.
 							</i></p>
                     </div>
                 </div>
@@ -324,10 +315,10 @@ Then comes the night of Fa's birthday party. The rain. The kiss that changes eve
 
 Perfect for readers who love slow-burn romance, found family, and characters brave enough to risk their hearts when the world tells them they shouldn't.
 					</p><br><p>
-Release Date: Summer 2026
+Release Date: Spring 2026
 </p><br><p>
-Contact writerkai@proton.me for a pre-release full length PDF.
-							</i></p>
+	Contact writerkai@proton.me for more information.
+								</i></p>
                     </div>
                 </div>
 				<br><br>              
@@ -341,33 +332,21 @@ Contact writerkai@proton.me for a pre-release full length PDF.
                     </div>
                     <div class="md:w-2/3 text-box">		
                         <p class="font-mono text-sm uppercase text-red-300 mb-2 text-4xl md:text-2xl">
-The Girl who Licks Wolves
+The Girl Who Licks Wolves
 						</p>
                         <p><i>
-A Novel by Chad Huntley
+A Novel by Anya Snarkowitz
 </i></p>						
 <br><br>
 <p>	<i>
-	A send up take off on those dark romances
-</p><br><p>
-
-He's just passing through.
-</p><br><p>
-
-But she can't take her eyes off his broken zipper.
-</p><br><p>
-
-</p><br><p>
-Perfect for readers who are so jaded they'd prefer an enema to a handshake.
+	A dark noir harrowing romanta-fantasy thriller with shifters and shifting shadows on the brink of a violent collision of lust and broken zippers. Not for the faint of heart but perfect for those so jaded they'd prefer an enema to a handshake.
 					</p><br><p>
-Release Date: What the Heck 2026
-</p><br><p>
-Contact writerkai@proton.me for a pre-release full length PDF.
+	Release Date: Spring 2026
+	</p><br><p><i>
+		Contact writerkai@proton.me for more information.
 							</i></p>
                     </div>
                 </div>
-
-
             </section>
 
 
@@ -375,8 +354,8 @@ Contact writerkai@proton.me for a pre-release full length PDF.
 
             <!-- WWW  WRITERS Page Content -->
             <section id="page-writers" class="page-content hidden">
-                <h2 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight border-b-2 border-red-300 pb-2"></h2>
-                
+                <h4 class="text-2xl md:text-1xl  mb-6 tracking-tight border-b-2 border-red-300 pb-2"><br><u>December 2025 Update:</u>  Most of our USA staff have chosen to go into the virtual underground and be off social media. Please contact Kai at her email to request ARC (advance reader) copies and links. We wish you well and hope to return.</h4>
+                <br><br><p></p>
                  <div class="content-image-text">
                      <div class="md:w-1/3">
                          <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
@@ -385,11 +364,11 @@ Contact writerkai@proton.me for a pre-release full length PDF.
                               onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
                      </div>
                      <div class="md:w-2/3 text-box">
-                         <p class="font-mono text-sm uppercase text-red-300 mb-2">Marna Lucretia-Stone, Sales & Marketing</p>
+                         <p class="font-mono text-sm uppercase text-red-300 mb-2">Marna Lucretia-Stone</p>
                          <p>
 
-A former HOA treasurer, Marna Lucretia-Stone, aka "Feral Karen", has channeled the same incandescent rage that once defined her audit of the community pool pass system into her career as a literary provocateur. She has become the voice of the aggrieved after her legendary altercation in a T J Maxx parking lot involving a misplaced coupon and a sturdy handbag. Now, with her lease on a Mercedes G-Wagon dangling by a thread and the repo truck circling like a shark, she offers a raw, unfiltered perspective the decline of Western civilization as defined by her credit score. </p><br><p>
-Marna is a woman who believes that a restraining order is not a legal boundary, but a sign of her work's visceral impact. She'd love to sell you some Amway lotion if you're not busy.
+A former HOA board member, Marna Lucretia-Stone, aka "Feral Karen", has channeled the same incandescent rage that once defined her audit of the community pool pass system into her career as a literary provocateur. She has become the voice of the aggrieved after her legendary altercation in a T J Maxx parking lot involving an expired gift card and some hot pink leg warmers. Now, with her lease on a Mercedes G-Wagon dangling by a thread and the repo truck circling the block, she offers a raw, unfiltered perspective on denial and passive-aggression.</p><br><p>
+Marna is a woman who believes that a restraining order is just a sign of commitment. She'd love to sell you a case of expired Amway dish soap.
                          </p>
                      </div>
                  </div>
@@ -403,22 +382,56 @@ Marna is a woman who believes that a restraining order is not a legal boundary, 
 				                               onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
 				                      </div>
 				                      <div class="md:w-2/3 text-box">
-				                          <p class="font-mono text-sm uppercase text-red-300 mb-2">Rufus LaGuerre, agent</p>
+				                          <p class="font-mono text-sm uppercase text-red-300 mb-2">Rufus LaGuerre</p>
 				                          <p>
-				  A former Korfball legend, Rufus La Guerre, has used that same viral tenacity that once defined his semi-angst career into a fringe literary agent. He has become a champion of the unsellable, a connoisseur of the pretentious and confounding, and a cheerleader for any writer whose goal is clicks and two novels a week. While his competitors are busy minting money with celebrity memoirs, cookbooks, and cookie-cutter thrillers, Rufus is deep in the trenches of futility, valiantly pushing for the publication of a 900-page novel about a man who talks to his socks. "It's the next Ulysses!" 
+				  A former Korfball legend, Rufus La Guerre, uses his notorious climax avoidance as a champion of the unsellable, a connoisseur of the pretentious, and a cheerleader for any writer whose goal is clicks and spamming KDP with several novels a day. While his competitors are busy minting money with celebrity memoirs, cookbooks, and cookie-cutter thrillers, Rufus is deep in the trenches of futility, valiantly pushing for the publication of a 900-page novel about a man who talks to his socks. "It's the next Ulysses!" 
 				  </p><br><p>
-				  Rufus is a man who believes that his inability to sell a book is not a failure, but a sign of its profound artistic commitment. "The thousands of us who now write, we can all succeed, if we just want it bad enough." His one viral moment was in 2009:   . 				  
+				  Rufus is a man who believes that his inability to sell a book is not a failure, but badge of honor and a watermark on legitimacy. "The thousands of us who now write, we can all succeed, if we just want it squeeze ourselves hard enough."   </p><br><p>				  
 			  	<a href="https://www.youtube.com/watch?v=Dp0Bt2cbcc8"
 			  	   target="_blank"
 			  	   rel="noopener noreferrer"
 			  	   class="text-blue-500 underline hover:text-blue-300">
-That's Rufus on the right.
+Check out his viral interview with our Sales Associate.
 			  	</a>
 			
  				                          </p>
 				                      </div>
 				                  </div>
+	
+					                  <div class="content-image-text">
+					                      <div class="md:w-1/3">
+					                          <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
+					                               src="images/writer_anna.png" 
+					                               alt="Portrait of a writer" 
+					                               onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
+					                      </div>
+					                      <div class="md:w-2/3 text-box">
+					                          <p class="font-mono text-sm uppercase text-red-300 mb-2">Anya Snarkowitz</p>
+					                          <p>
+					  The newest addition (we think) to our collaborative team, Anya Snarkowitz. A long time resident of Hell's Kitchen, Anya is driven to write in whatever's the chart-topping sub-genre keywords on KDP, she'll chase any trope no matter how obtuse. She calls a couple times a week for her royalty check. Her agent is looking for her.
+				  </p><br><p>
+				 	 				                          </p>
+					                      </div>
+					                  </div>
 				 
+
+					                  <div class="content-image-text">
+					                      <div class="md:w-1/3">
+					                          <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
+					                               src="images/ejfranklin_bio.png" 
+					                               alt="Portrait of a writer" 
+					                               onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
+					                      </div>
+					                      <div class="md:w-2/3 text-box">
+					                          <p class="font-mono text-sm uppercase text-red-300 mb-2">E. J. Franklin</p>
+					                          <p>
+					E. J. Franklin has been teetering on the edge of relevance since the Ford administration, though relevance has, thus far, declined to return his calls. A survivor of Chicago’s punk-disco golden age (he once got ejected from a club for trying to start a mosh pit during a Donna Summer remix), he arrived in the city during the Blizzard of ’77 after leaping from a freight train in Wabash, Indiana, because walking was for people who paid taxes. His remaining friends—down to a single, deeply conflicted librarian—describe him as "a sleazy, pretentious nuisance with the follow-through of a mayfly." 
+					</p><br><p>
+						His writing is painstakingly accurate (he once cross-referenced a Wikipedia page with a fortune cookie) and delightfully unmoored (he once wrote an entire chapter defending the artistic integrity of a vending machine). Retired four times, but the thought of addressing Christmas cards made him break out in hives. His work is a triumph of persistence over talent (his words) and a cautionary tale to those seeking contentment.
+				 	
+	 				                          </p>
+					                      </div>
+					                  </div>
 				 
 <br> 
 
@@ -432,25 +445,26 @@ That's Rufus on the right.
 
             <!-- KAI'S BLOG Page Content -->
             <section id="page-blog" class="page-content hidden">
-                <h2 class="text-4xl md:text-2xl  mb-6 tracking-tight border-b-2 border-red-300 pb-2">Shall we dance?
+                <h2 class="text-4xl md:text-2xl  mb-6 tracking-tight border-b-2 border-red-300 pb-2">Links and Blogs - Coming soon. 
 				</h2>
                 
-                <!-- Blog Post 1 -->
+                <!-- Blog Post 1 
                 <article class="mb-10 p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold mb-4 text-red-300">December 02 2025</h3>
                     <div class="space-y-4 text-gray-300">
                         <p>
-						Let's bemoan our circumstances.</p>
+						Bemoan the Circumstances.</p>
 						</p>
                         <p>	https://substack.com/home/post/p-173648447
-							Because buried beneath the landfill are indie authors who care. Authors who sweat over every sentence, who pay out of pocket for professional editing, who design covers that could sit proudly on a Waterstones display. Authors who respect readers enough to deliver something polished, gripping, and worth their time. I’ve met plenty of them, I’ve worked alongside them, and their work often leaves traditional publishing looking slow, bloated, and frankly amateurish.<br>
+<br>							Because buried beneath the landfill are indie authors who care. Authors who sweat over every sentence, who pay out of pocket for professional editing, who design covers that could sit proudly on a Waterstones display. Authors who respect readers enough to deliver something polished, gripping, and worth their time. I’ve met plenty of them, I’ve worked alongside them, and their work often leaves traditional publishing looking slow, bloated, and frankly amateurish.<br>
 							The tragedy is that these voices are outnumbered ten-to-one by the hacks chasing a quick buck.
 														
 						</p>
                     </div>
                 </article>
+					-->
 
-                <!-- Blog Post 2 -->
+                <!-- Blog Post 2 
                 <article class="mb-10 p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold mb-4 text-red-300">December 05 2025</h3>
                     <div class="space-y-4 text-gray-300">
@@ -463,23 +477,20 @@ That's Rufus on the right.
 							</p>
                     </div>
                 </article>
+					
+					-->
             </section>
 
             <!-- CONTACT Page Content -->
             <section id="page-contact" class="page-content hidden">
-                <h2 class="text-4xl md:text-2xl  mb-6 tracking-tight border-b-2 border-red-300 pb-2">                 Contact writerkai@proton.me for more information.
-<br><i>
-Word of the Week.
+                <h2 class="text-4xl md:text-2xl  mb-6 tracking-tight border-b-2 border-red-300 pb-2">Contact Kai at writerkai@proton.me for more information.
 </i></h2>
                     <h3 class="text-2xl font-semibold mb-4 text-red-300">
-
+Beta Reader Feedback Form - coming soon. 
                     </h3>
 
         <!-- removed the dummy forms for contact -->
 					
-<br><br><br><hr>
-<br><br><br><hr>
-<br><br><br><hr>
             </section>
         </main>
 
@@ -559,7 +570,7 @@ Word of the Week.
                 targetPage.classList.remove('hidden');
                 // Update banner text based on page
                 if (pageId === 'home') {
-                    bannerText.textContent = 'subVert';
+                    bannerText.textContent = '';
                 } else {
                     // Capitalize the first letter and use a stylized name for internal pages
                     bannerText.textContent = pageId.charAt(0).toUpperCase() + pageId.slice(1);

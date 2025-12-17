@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sub-Vert File Access</title>
+
+<style>
+/* ---- palette & base ---- */
+:root{
+  --black: #000000;
+  --panel: #121212;
+  --panel-gloss: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+  --border-soft: rgba(255,255,255,0.05);
+
+  --copper: #2a2a2a;
+  --copper-text: #dddddd;
+  
+/*  --copper: linear-gradient(
+    90deg,
+    #3a2a1c,
+    #5c432a,
+    #4a3422
+  );
+  --copper-text: #e0c9aa;
+*/ 
+  
+  
+  --muted: #9a9a9a;
+  --white: #eaeaea;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+  background-color:#000;
+  background-image: url("images/bg_will.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--white);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 0;
+}
+main, header{
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- layout ---- */
+header{
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+header a{
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+header a:hover{
+  opacity: 1;
+}
+
+main{
+  padding: 28px 18px 60px;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---- floating section panel ---- */
+section.release{
+  background: var(--panel-gloss);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 22px;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* optional section heading */
+.release h2{
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+/* ---- download bar ---- */
+.download{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 6px;
+  background: var(--copper);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* title text (not the link) */
+.download .title{
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--copper-text);
+}
+
+/* file line */
+.download .file{
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* actual download link */
+.download .file a{
+  color: #000;
+  background: rgba(255,255,255,0.75);
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.download .file a:hover{
+  background: rgba(255,255,255,0.9);
+}
+
+/* metadata */
+.download .meta{
+  color: #BBB;
+  opacity: 0.65;
+  font-size: 12px;
+}
+
+/* ---- mobile polish ---- */
+@media (max-width: 480px){
+  .release{
+    padding: 18px;
+  }
+  .release h2{
+    font-size: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">sub-Vert Home</a>
+</header>
+
+<main>
+
+<h4><i>Advanced Reader Copy files for individual download only.	Do not distribute or share without permission.</i><br> 
+</h4>
+	
+  <!-- ===== SECTION 1 ===== -->
+  <section class="release">
+    <h2>Ty Undone — Release January 2026</h2>
+
+    <div class="download">
+ 
+      <div class="title">
+        eBook Excerpt - Chapters 1,2,3,4
+      </div>
+  <div class="file">
+   <a href="files/ty_undone_v4b_excerpt1.pdf" target="_blank">
+     ty_undone_v4b_excerpt1.pdf
+   </a>
+   <span class="meta">PDF</span>
+   <span class="meta">KB</span>
+</div>
+
+<br>
+
+  <div class="title">
+   Audiobook Excerpt - Chapter 1
+ </div>
+  <div class="file">
+   <a href="files/ty_undone_audio_chapter_1.wav" target="_blank">
+     ty_undone_audio_chapter_1.wav
+   </a>
+   <span class="meta">WAV</span>
+   <span class="meta">MB</span>
+ </div>
+ <br>
+  <div class="title">
+   Audiobook Excerpt - Chapter 2
+ </div>
+  <div class="file">
+   <a href="files/ty_undone_audio_chapter_2.wav" target="_blank">
+     ty_undone_audio_chapter_2.wav
+   </a>
+   <span class="meta">WAV</span>
+   <span class="meta">MB</span>
+ </div>
+ </div>
+ 
+ 
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2 ===== -->
+  <section class="release">
+    <h2>Warm Blue Waters -- Release Spring 2026</h2>
+
+    <div class="download">
+      <div class="title">
+        eBook Chapter Summary *** Spoiler Alert ***
+      </div>
+      <div class="file">
+        <a href="warm_blue_summary.pdf" target="_blank">
+          warm_blue_summary.pdf
+        </a>
+        <span class="meta">PDF</span>
+        <span class="meta"> KB</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3 ===== -->
+  <section class="release">
+    <h2>The Last Rain of Summer -- Release Spring 2026</h2>
+
+    <div class="download">
+      <div class="title">
+        eBook Chapter Summary *** Spoiler Alert ***
+      </div>
+      <div class="file">
+        <a href="last_rain_summary.pdf" target="_blank">
+          last_rain_summary.pdf
+        </a>
+        <span class="meta">PDF</span>
+        <span class="meta"> KB</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
