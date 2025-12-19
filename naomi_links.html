@@ -126,6 +126,50 @@ section.review{
   object-fit:contain;
 }
 
+/* ---- lightbox overlay ---- */
+ .lightbox{
+   position:fixed;
+   inset:0;
+   background:rgba(0,0,0,0.9);
+   display:none;
+   align-items:center;
+   justify-content:center;
+   z-index:9999;
+ }
+
+ .lightbox.active{
+   display:flex;
+ }
+
+ .lightbox img{
+   max-width:92%;
+   max-height:92%;
+   object-fit:contain;
+   box-shadow:0 30px 80px rgba(0,0,0,0.9);
+ }
+
+ /* close button */
+ .lightbox .close{
+   position:absolute;
+   top:18px;
+   right:22px;
+   font-size:28px;
+   font-weight:300;
+   color:#eaeaea;
+   cursor:pointer;
+   opacity:0.8;
+   user-select:none;
+ }
+
+ .lightbox .close:hover{
+   opacity:1;
+ }
+
+ /* clickable image cue */
+ .image-box img{
+   cursor:zoom-in;
+ }
+
 /* ---- comments ---- */
 textarea{
   width:100%;
@@ -149,6 +193,8 @@ textarea::placeholder{
   .grid{
     grid-template-columns:1fr;
   }
+  
+ 
 }
 </style>
 </head>
@@ -172,22 +218,23 @@ textarea::placeholder{
       <div class="column">
         <h3>Original Image</h3>
         <div class="image-box">
-          <img src="naomi_covers/ty_wip.png" alt="Original image">
+          <img src="naomi_covers/ty_wip.png" alt="Original image" onclick="openLightbox(this)">
         </div>
       </div>
+ 
 
       <!-- Column 2 -->
       <div class="column">
         <h3>Rough Cover Draft</h3>
         <div class="image-box">
-          <img src="naomi_covers/draft_ty.png" alt="Cover draft">
+          <img src="naomi_covers/ty_wip.png" alt="Original image" onclick="openLightbox(this)">
         </div>
       </div>
 
       <!-- Column 3 -->
       <div class="column">
         <h3>Comments</h3>
-        <textarea placeholder="Still trying to finalize this one."></textarea>
+	        <textarea placeholder="Still trying to finalize this one." readonly></textarea>
       </div>
 
     </div>
@@ -203,7 +250,7 @@ textarea::placeholder{
       <div class="column">
         <h3>Original Image</h3>
         <div class="image-box">
-          <img src="naomi_covers/wbw_19-12-25.png" alt="Original image">
+			<img src="naomi_covers/wbw_19-12-25.png" alt="Original image" onclick="openLightbox(this)">
         </div>
       </div>
 
@@ -218,7 +265,7 @@ textarea::placeholder{
       <!-- Column 3 -->
       <div class="column">
         <h3>Comments</h3>
-        <textarea placeholder="I think this is ready to send to Naomi."></textarea>
+        <textarea placeholder="I think this is ready to send to Naomi." readonly></textarea>
       </div>
 
     </div>
@@ -249,7 +296,7 @@ textarea::placeholder{
       <!-- Column 3 -->
       <div class="column">
         <h3>Comments</h3>
-        <textarea placeholder="Ready also."></textarea>
+        <textarea placeholder="Ready also." readonly></textarea>
       </div>
 
     </div>
@@ -279,11 +326,42 @@ textarea::placeholder{
       <!-- Column 3 -->
       <div class="column">
         <h3>Comments</h3>
-        <textarea placeholder="I like the image but is it too square?  Not sure it can be used for a 5x8."></textarea>
+        <textarea placeholder="I like the image but is it too square?  Not sure it can be used for a 5x8." readonly></textarea>
       </div>
 
     </div>
   </section>
+
+
+
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="close" onclick="closeLightbox()">×</div>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openLightbox(img){
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  lightboxImg.src = img.src;
+  lightbox.classList.add('active');
+}
+
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+/* close on background click */
+document.getElementById('lightbox').addEventListener('click', function(e){
+  if(e.target === this){
+    closeLightbox();
+  }
+});
+</script>
+
+
 
 
 </body>
