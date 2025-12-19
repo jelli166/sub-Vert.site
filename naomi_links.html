@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naomi – Cover Review</title>
+
+<style>
+:root{
+  --black:#000;
+  --panel:#121212;
+  --panel-gloss:linear-gradient(180deg,#1a1a1a,#0d0d0d);
+  --border-soft:rgba(255,255,255,0.06);
+
+  --copper:#2a2a2a;
+  --copper-text:#dddddd;
+
+  --muted:#9a9a9a;
+  --white:#eaeaea;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0;
+  min-height:100%;
+  background:#000 url("images/bg_will.png") center/cover fixed no-repeat;
+  color:var(--white);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+  z-index:0;
+}
+
+header,main{
+  position:relative;
+  z-index:1;
+}
+
+header{
+  padding:18px 22px;
+  border-bottom:1px solid var(--border-soft);
+}
+
+header a{
+  color:var(--white);
+  text-decoration:none;
+  font-size:14px;
+  letter-spacing:1px;
+  opacity:.9;
+}
+
+header a:hover{ opacity:1; }
+
+main{
+  max-width:1100px;
+  margin:0 auto;
+  padding:28px 18px 60px;
+}
+
+/* ---- project / book heading ---- */
+.project-title{
+  margin: 0 0 10px 6px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  color: #cfcfcf;          /* easy to tweak */
+  opacity: 0.9;
+  text-transform: none;    /* change to uppercase if you want */
+}
+
+/* ---- panel ---- */
+section.review{
+  background:var(--panel-gloss);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  padding:22px;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.7),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* ---- grid ---- */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1.2fr;
+  gap:18px;
+}
+
+.column{
+  background:var(--copper);
+  border-radius:6px;
+  padding:14px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 6px 18px rgba(0,0,0,.6);
+}
+
+.column h3{
+  margin:0 0 10px;
+  font-size:14px;
+  letter-spacing:.8px;
+  font-weight:600;
+  color:var(--copper-text);
+}
+
+/* ---- images ---- */
+.image-box{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0b0b0b;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:4px;
+  min-height:320px;
+}
+
+.image-box img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+/* ---- comments ---- */
+textarea{
+  width:100%;
+  min-height:320px;
+  resize:vertical;
+  background:#0b0b0b;
+  color:var(--white);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:4px;
+  padding:10px;
+  font-size:14px;
+  line-height:1.45;
+}
+
+textarea::placeholder{
+  color:var(--muted);
+}
+
+/* ---- mobile ---- */
+@media (max-width:900px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">sub-Vert Home</a>
+</header>
+
+<main>
+
+
+<!-- BOOK #1 -->
+<br><hr><br>
+<h2 class="project-title">Ty Undone</h2>
+  <section class="review">
+    <div class="grid">
+ 
+      <!-- Column 1 -->
+      <div class="column">
+        <h3>Original Image</h3>
+        <div class="image-box">
+          <img src="naomi_covers/ty_wip.png" alt="Original image">
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="column">
+        <h3>Rough Cover Draft</h3>
+        <div class="image-box">
+          <img src="naomi_covers/draft_ty.png" alt="Cover draft">
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="column">
+        <h3>Comments</h3>
+        <textarea placeholder="Still trying to finalize this one."></textarea>
+      </div>
+
+    </div>
+  </section>
+
+<!-- BOOK #2 -->
+<br><hr><br>
+<h2 class="project-title">Warm Blue Waters</h2>
+  <section class="review">
+    <div class="grid">
+ 
+      <!-- Column 1 -->
+      <div class="column">
+        <h3>Original Image</h3>
+        <div class="image-box">
+          <img src="naomi_covers/wbw_19-12-25.png" alt="Original image">
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="column">
+        <h3>Rough Cover Draft</h3>
+        <div class="image-box">
+          <img src="naomi_covers/draft_wbw.png" alt="Cover draft">
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="column">
+        <h3>Comments</h3>
+        <textarea placeholder="I think this is ready to send to Naomi."></textarea>
+      </div>
+
+    </div>
+  </section>
+
+<!-- BOOK #3-->
+<br><hr><br>
+<h2 class="project-title">The Last Rain of Summer</h2>
+  <section class="review">
+    <div class="grid">
+ 
+      <!-- Column 1 -->
+      <div class="column">
+        <h3>Original Image</h3>
+        <div class="image-box">
+          <img src="naomi_covers/tlros.png" alt="Original image">
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="column">
+        <h3>Rough Cover Draft</h3>
+        <div class="image-box">
+          <img src="naomi_covers/draft_tlros.png" alt="Cover draft">
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="column">
+        <h3>Comments</h3>
+        <textarea placeholder="Ready also."></textarea>
+      </div>
+
+    </div>
+  </section>
+
+<br><hr><br>
+<h2 class="project-title">Trigger Fish</h2>
+  <section class="review">
+    <div class="grid">
+ 
+      <!-- Column 1 -->
+      <div class="column">
+        <h3>Original Image</h3>
+        <div class="image-box">
+          <img src="naomi_covers/trigfish_12-18-25.png" alt="Original image">
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="column">
+        <h3>Rough Cover Draft</h3>
+        <div class="image-box">
+          <img src="naomi_covers/draft_trigfish.png" alt="Cover draft">
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="column">
+        <h3>Comments</h3>
+        <textarea placeholder="I like the image but is it too square?  Not sure it can be used for a 5x8."></textarea>
+      </div>
+
+    </div>
+  </section>
+
+
+</body>
+</html>
