@@ -15,7 +15,7 @@
 
   --copper: #2a2a2a;
   --copper-text: #dddddd;
-  
+
 /*  --copper: linear-gradient(
     90deg,
     #3a2a1c,
@@ -23,9 +23,9 @@
     #4a3422
   );
   --copper-text: #e0c9aa;
-*/ 
-  
-  
+*/
+
+
   --muted: #9a9a9a;
   --white: #eaeaea;
 }
@@ -165,57 +165,220 @@ section.release{
     font-size: 16px;
   }
 }
+
+/* ---- human gate buttons ---- */
+#gate-buttons{
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.gate{
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+}
+
+.gate.red    { background:#1f4f7a; }
+.gate.green  { background:#1f4f7a; }
+.gate.blue   { background:#1f4f7a; }
+.gate.yellow { background:#1f4f7a;}
+
+/* ---- revealed downloads ---- */
+#list .download{
+  margin-top: 14px;
+}
+
+
+/* ---- gate row ---- */
+.gate-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+/* ---- reset button ---- */
+#reset{
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#reset:hover{
+  color: var(--white);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* ---- status text ---- */
+.status{
+  margin-top: 12px;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  opacity: 0.85;
+}
+
+.status.locked{
+  color: #bbb;
+}
+
+.status.unlocked{
+  color: #9fd3ff;
+}
+
+/* ---- fade-in reveal ---- */
+#files{
+  display: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  margin-top: 18px;
+}
+
+#files.show{
+  display: block;
+  opacity: 1;
+}
+
+/* ---- subtle wrong-button feedback ---- */
+@keyframes nudge {
+  0%   { transform: translateX(0);   }
+  25%  { transform: translateX(-3px);}
+  50%  { transform: translateX(3px); }
+  75%  { transform: translateX(-2px);}
+  100% { transform: translateX(0);   }
+}
+
+.gate.wrong{
+  animation: nudge 0.25s ease;
+  filter: brightness(0.85);
+}
+
+
 </style>
 </head>
 
 <body>
-
 <header>
   <a href="index.html">sub-Vert Home</a>
 </header>
-
 <main>
 
-
-		
   <!-- ===== SECTION 1 ===== -->
   <section class="release">
-    <h2>Under Construction - check back later when the fog has cleared — Release Early 2026</h2>
 
-    <div class="download">
- 
-      <div class="title">
-        eBook Excerpt - Chapters 1-12 
-      </div>
-  <div class="file">
-   <a href="files/dummy.pdf" target="_blank">
-     dummy.pdf
-   </a>
-   <span class="meta">PDF</span>
-   <span class="meta">0 KB</span>
-  </div>
+	  <img src="images/wbw_ncover.jpg"
+	       alt="Cover for novel"
+	       style="width: 30%; height: auto;">
 
+		<br><br><br>
+		<h2><small>Sample downloads:</small>  Warm Blue Waters, a novel by Kai D. Waddell</h2>
+	<br><br><br>
+    <h3><pre>To access files, take a Humanity Test.</pre></h3>
+	<h4><i>Press the Button where the name of the color matches the button color. <br><small>Hint for Squirrel: It's the third button from the left.</i></small></h4>
+    <div class="gate-row">
+      <div id="gate-buttons">
+		  <button class="gate red"    onclick="fail(this)">Red</button>
+		  <button class="gate green"  onclick="fail(this)">Green</button>
+          <button class="gate blue"   onclick="unlock()">Blue</button>
+		  <button class="gate yellow" onclick="fail(this)">Yellow</button>
+		</div>
+
+      <button id="reset" onclick="resetPage()">Reset</button>
+    </div>
+
+    <div id="status" class="status locked">
+      🔒 Locked — click the <span style="color:#4da3ff">blue</span> button
+    </div>
+
+    <div id="files">
+      <div id="list"></div>
     </div>
   </section>
+
 
   <!-- ===== SECTION 2 =====   <section class="release">
-    <h2>Warm Blue Waters -- Release Spring 2026</h2>
-   <div class="download">
-      <div class="title">
-        eBook Chapter Summary *** Spoiler Alert ***
-      </div>
-      <div class="file">
-        <a href="warm_blue_summary.pdf" target="_blank">
-          warm_blue_summary.pdf
-        </a>
-        <span class="meta">PDF</span>
-        <span class="meta"> KB</span>
-      </div>
-    </div>
   </section>
 -->
-
 </main>
+
+<script>
+const files = [
+  {
+    label: "Sample Opening Chapters",
+    subtitle: "Version v5b",
+    file: "8f3a9c_wbw_v5b.pdf",
+    meta: "PDF · Jan 2026"
+  },
+  {
+    label: "Sample Audio - Single Chapter",
+    subtitle: "Version v5b",
+    file: "122118.wav",
+    meta: "WAV · Jan 2026"
+  }
+];
+
+function unlock(){
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  files.forEach(item => {
+    const wrap = document.createElement("div");
+    wrap.className = "download";
+
+    wrap.innerHTML = `
+      <div class="title">
+        ${item.label}
+        <span class="meta">${item.subtitle}</span>
+      </div>
+      <div class="file">
+        <a href="./gated2026/${item.file}" target="_blank" rel="noopener">
+          Open
+        </a>
+        <span class="meta">${item.meta}</span>
+      </div>
+    `;
+
+    list.appendChild(wrap);
+  });
+
+  // status update
+  const status = document.getElementById("status");
+  status.textContent = "🔓 Unlocked — files available";
+  status.classList.remove("locked");
+  status.classList.add("unlocked");
+
+  // reveal with fade-in
+  const filesDiv = document.getElementById("files");
+  filesDiv.style.display = "block";
+  requestAnimationFrame(() => filesDiv.classList.add("show"));
+
+  // hide gate buttons
+  document.getElementById("gate-buttons").style.display = "none";
+}
+
+
+function resetPage(){
+  location.reload();
+}
+</script>
+
+<script>
+function fail(btn){
+  btn.classList.remove("wrong"); // reset if clicked twice
+  void btn.offsetWidth;          // force reflow
+  btn.classList.add("wrong");
+}
+</script>
+
 
 </body>
 </html>
