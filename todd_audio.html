@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sub-Vert Audio Library</title>
+
+<style>
+/* ---- palette & base (Preserved from original) ---- */
+:root{
+  --black: #000000;
+  --panel: #121212;
+  --panel-gloss: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+  --border-soft: rgba(255,255,255,0.05);
+  --copper: #2a2a2a;
+  --copper-text: #dddddd;
+  --muted: #9a9a9a;
+  --white: #eaeaea;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+  background-color:#000;
+  background-image: url("images/bg_will.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--white);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 0;
+}
+main, header{
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- layout ---- */
+header{
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+header a{
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+main{
+  padding: 28px 18px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---- NEW: Logo & Top Text Section ---- */
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: var(--panel-gloss);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.brand-header img {
+  max-height: 400px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.brand-text {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--white);
+  opacity: 0.9;
+}
+
+/* ---- Table & Content Styling ---- */
+section.release{
+  background: var(--panel-gloss);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 22px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+.release h2{
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  border-left: 3px solid var(--white);
+  padding-left: 12px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  text-align: left;
+  background: var(--copper);
+  color: var(--copper-text);
+  padding: 12px;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: middle;
+}
+
+audio {
+  height: 30px;
+  width: 220px;
+  filter: invert(90%) hue-rotate(180deg) brightness(1.2);
+  opacity: 0.8;
+}
+
+.file-link {
+  color: #000;
+  background: rgba(255,255,255,0.75);
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.file-link:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+/* ---- mobile polish ---- */
+@media (max-width: 600px){
+  .brand-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  audio { width: 140px; }
+  th, td { padding: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">sub-Vert Home</a>
+</header>
+
+<main>
+
+  <div class="brand-header">
+    <img src="./images/todd_audio_logo.png" alt="Todd Audio Logo">
+    <div class="brand-text">
+  <p>
+<h2>Welcome to the Todd Audio</h2>
+<h3><i>(Early Beta 2026)</i></h3>
+<p><br><br><br>
+	<br><br>
+<h4>An offline Text-to-Speech AI service for writers. Providing full novel and long form essay (up to 100k word) narration for draft editing and review.</h4>
+</div>
+  </div>
+
+  <section class="release">
+    <h2>22.02.2026 - About Todd TTS Early Beta Invitation</h2><p>
+<h4>Looking for anyone interested in trying this out.
+	 <p>Feel free to contact us with any questions, or:<br> 1) send us a test markdown or text file (respecting copyright and licensing of course), and <br> 2) pick the narrator voice (by Voice#) from the LibriVox samples below,<br> and we will generate an MP3 and reply back with a link to it.<p>Email to: rufuslaguerre@proton.me for further information. </h4>
+</section>	 
+
+  <section class="release">
+    <h2>Sample Voices from LibriTTS-R (Public Domain, non-commercial use)</h2>
+ <p><i>(It is possible to supply your own voice sample WAV. See below.)<br>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Voice#</th>
+            <th>Gender</th>
+            <th>Preview</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>121</td>
+            <td>Female</td>
+            <td><audio controls preload="none"><source src="./files/121.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/121.wav" class="file-link" target="_blank">121.wav</a></td>
+          </tr>
+          <tr>
+            <td>4446</td>
+            <td>Female</td>
+            <td><audio controls preload="none"><source src="./files/4446.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/4446.wav" class="file-link" target="_blank">4446.wav</a></td>
+          </tr>
+          <tr>
+            <td>4507</td>
+            <td>Female</td>
+            <td><audio controls preload="none"><source src="./files/4507.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/4507.wav" class="file-link" target="_blank">4507.wav</a></td>
+          </tr>
+          <tr>
+            <td>4992</td>
+            <td>Female</td>
+            <td><audio controls preload="none"><source src="./files/4992.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/4992.wav" class="file-link" target="_blank">4992.wav</a></td>
+          </tr>
+          <tr>
+            <td>6829</td>
+            <td>Female</td>
+            <td><audio controls preload="none"><source src="./files/6829.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/6829.wav" class="file-link" target="_blank">6829.wav</a></td>
+          </tr>
+          <tr>
+            <td>5142</td>
+            <td>Neutral</td>
+            <td><audio controls preload="none"><source src="./files/5142.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/5142.wav" class="file-link" target="_blank">5142.wav</a></td>
+          </tr>
+          <tr>
+            <td>8463</td>
+            <td>Neutral</td>
+            <td><audio controls preload="none"><source src="./files/8463.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/8463.wav" class="file-link" target="_blank">8463.wav</a></td>
+          </tr>
+          <tr>
+            <td>1089</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/1089.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/1089.wav" class="file-link" target="_blank">1089.wav</a></td>
+          </tr>
+          <tr>
+            <td>1320</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/1320.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/1320.wav" class="file-link" target="_blank">1320.wav</a></td>
+          </tr>
+          <tr>
+            <td>2300</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/2300.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/2300.wav" class="file-link" target="_blank">2300.wav</a></td>
+          </tr>
+          <tr>
+            <td>260</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/260.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/260.wav" class="file-link" target="_blank">260.wav</a></td>
+          </tr>
+          <tr>
+            <td>5105</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/5105.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/5105.wav" class="file-link" target="_blank">5105.wav</a></td>
+          </tr>
+          <tr>
+            <td>672</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/672.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/672.wav" class="file-link" target="_blank">672.wav</a></td>
+          </tr>
+          <tr>
+            <td>7021</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/7021.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/7021.wav" class="file-link" target="_blank">7021.wav</a></td>
+          </tr>
+          <tr>
+            <td>7176</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/7176.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/7176.wav" class="file-link" target="_blank">7176.wav</a></td>
+          </tr>
+          <tr>
+            <td>8224</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/8224.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/8224.wav" class="file-link" target="_blank">8224.wav</a></td>
+          </tr>
+          <tr>
+            <td>8230</td>
+            <td>Male</td>
+            <td><audio controls preload="none"><source src="./files/8230.wav" type="audio/wav"></audio></td>
+            <td><a href="./files/8230.wav" class="file-link" target="_blank">8230.wav</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+
+
+  <section class="release">
+    <h2>Further Information</h2>
+ <br>
+ 	 
+<h4>A. Supplying your own Voice Sample</h4>
+<p>
+	
+	The better the quality and specs of the sample file, the better the resulting generated audiobook  
+	I have zero experience with digital audio files so the guidance below on a voice .wav sampling file that you would provide for your recording below comes straight off the internet. 
+
+<pre>
+	---
+
+	# **Voice Sample Requirements (.wav)**
+
+	To get the best results from our free text-to-speech system, 
+	please follow these guidelines carefully.
+
+	## **1\) Length**
+
+	* **8 to 12 seconds**  
+	* One continuous take  
+	* No edits, no fades, no music
+
+	Longer is fine if it stays clean, 
+	but under 8 seconds is usually too little signal 
+	for consistent modeling.
+
+	---
+
+	## **2\) Speaking Style**
+
+	* Calm, steady pace  
+	* Clear enunciation  
+	* Neutral tone  
+	* No shouting  
+	* No whispering  
+	* No exaggerated emotion  
+	* No long pauses  
+	* No laughter or exclamations
+
+	Think: clear audiobook narration, 
+	not a dramatic performance.
+
+	---
+
+	## **3\) Recording Environment**
+
+	* Quiet room  
+	* No background music  
+	* No fan noise  
+	* No keyboard clicks  
+	* No traffic  
+	* No echo-heavy rooms (avoid kitchens, bathrooms)
+
+	If the room sounds “roomy,” your model 
+	will sound roomy forever.
+
+	---
+
+	## **4\) Technical Audio Requirements (WAV format)**
+
+	Submit **uncompressed WAV (PCM)** only.
+
+	### **Recommended Settings**
+
+	* Format: WAV (PCM)  
+	* Sample rate: **44.1 kHz or 48 kHz**  
+	* Bit depth: **16-bit or 24-bit**  
+	* Channels: **Mono preferred**  
+	* No normalization that causes clipping  
+	* No noise reduction artifacts  
+	* No compression (not MP3 converted to WAV)
+</pre>
+	<p>Important:  
+	If you recorded as MP3 and converted to WAV, that does not improve quality. We recommend recording directly to WAV.
+	
+	
+</section>	 
+
+
+
+
+</main>
+</body>
+</html>
