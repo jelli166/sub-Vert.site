@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>sub-Vert Audio Library</title>
+<title>Todd Audio TTS</title>
+
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
 
 <style>
 /* ---- palette & base (Preserved from original) ---- */
@@ -49,17 +53,26 @@ main, header{
 }
 
 /* ---- layout ---- */
+/* ---- layout ---- */
 header{
   padding: 18px 22px;
   border-bottom: 1px solid var(--border-soft);
 }
 
-header a{
+/* Updated to ensure links stay visible */
+header a, 
+header a:visited {
   color: var(--white);
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 1px;
-  opacity: 0.9;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+header a:hover {
+  opacity: 1;
+  color: var(--white); /* Forces it to stay white on hover */
 }
 
 main{
@@ -91,6 +104,9 @@ main{
 
 .brand-text {
   flex: 1;
+  /* 2. UPDATED THESE TWO LINES FOR CINZEL */
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
   font-size: 16px;
   line-height: 1.5;
   color: var(--white);
@@ -162,6 +178,14 @@ audio {
   background: rgba(255,255,255,0.9);
 }
 
+
+hr.custom1 {
+    border: none;           /* Remove default border */
+    height: 5px;            /* Set the thickness (height) */
+    background-color: #A0522D; /* Set the color */
+  }
+
+
 /* ---- mobile polish ---- */
 @media (max-width: 600px){
   .brand-header {
@@ -187,23 +211,25 @@ audio {
     <img src="./images/todd_audio_logo.png" alt="Todd Audio Logo">
     <div class="brand-text">
   <p>
-<h2>Welcome to the Todd Audio</h2>
-<h3><i>(Early Beta 2026)</i></h3>
-<p><br><br><br>
-	<br><br>
-<h4>An offline Text-to-Speech AI service for writers. Providing full novel and long form essay (up to 100k word) narration for draft editing and review.</h4>
-</div>
+	 
+<h2>Welcome to Todd Audio</h2>
+<h4><i>(currently Early Beta... relax)</i></h4>
+
+<p>
+A side project to provide freebie, full length draft Audiobooks -- with the goal of getting decent, AI-voiced narration for budget-minded long-form writers.<p>Intended for draft review, pacing analysis, line edits, and beta reads of full chapters, acts, and complete novels (and avoid blowing my monthly Slurpie budget on ElevenLabs).
+<br><br><br><hr>
+<h4>Beta Invitation - February 2026</h4>
+<p>Todd the Kitty is looking for folks interested in trying this out.
+<p>Simple steps: send your markdown to a secure folder, pick your narrator voice (samples below), and offline our local Ubuntu box generates your audio (MP3 or WAV) using Coqui XTTS 2.
+
+<br><p>Message me on Discord or email to: rufuslaguerre@proton.me</h4>
+					<br><br><a href="#mp3" style="color: #dddddd;">Sample MP3 Excerpts</a>
+					<br><br><a href="#faq" style="color: #dddddd;">FAQ</a>
+				</div>
   </div>
 
   <section class="release">
-    <h2>22.02.2026 - About Todd TTS Early Beta Invitation</h2><p>
-<h4>Looking for anyone interested in trying this out.
-	 <p>Feel free to contact us with any questions, or:<br> 1) send us a test markdown or text file (respecting copyright and licensing of course), and <br> 2) pick the narrator voice (by Voice#) from the LibriVox samples below,<br> and we will generate an MP3 and reply back with a link to it.<p>Email to: rufuslaguerre@proton.me for further information. </h4>
-</section>	 
-
-  <section class="release">
     <h2>Sample Voices from LibriTTS-R (Public Domain, non-commercial use)</h2>
- <p><i>(It is possible to supply your own voice sample WAV. See below.)<br>
     <div class="table-container">
       <table>
         <thead>
@@ -323,88 +349,113 @@ audio {
 
   </section>
 
+<hr class="custom1"><br>
 
+<section class="release" id="mp3">
+	<a href="#top" style="color: #dddddd;">Back to top</a><p>
+	<h2 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">MP3 Audio Samples</h2><hr>
+    <div class="brand-text" style="font-family: system-ui, sans-serif; text-transform: none; letter-spacing: normal;">
+    <p>
+<ul>
+<li><a href="./files/recording01.wav" class="file-link" target="_blank">Excerpt from <u>The Turn of the Screw</u> by Henry James</a>
+<li><a href="./files/recording02.wav" class="file-link" target="_blank">Excerpt from <u>The Portrait of Dorian Gray</u> by Oscar Wilde</a>
+</ul>
+  </div>
+</section>
 
-  <section class="release">
-    <h2>Further Information</h2>
- <br>
- 	 
-<h4>A. Supplying your own Voice Sample</h4>
-<p>
+<br><hr class="custom1"><br>
+
+<section class="release" id="faq">
+	<a href="#top" style="color: #dddddd;">Back to top</a><p>
 	
-	The better the quality and specs of the sample file, the better the resulting generated audiobook  
-	I have zero experience with digital audio files so the guidance below on a voice .wav sampling file that you would provide for your recording below comes straight off the internet. 
 
-<pre>
-	---
+  <h2 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">FAQ : Frequently Asked Questions</h2><hr>
+  
+  <div class="brand-text" style="font-family: system-ui, sans-serif; text-transform: none; letter-spacing: normal;">
+    <p>
+	<strong>1. Why?  </strong> When I am ready for line edits and beta readers, I want to be able to have a decent TTS narration and not spend big $$$ on services like ElevenLabs. Use them for your final Kindle/Audible versions.</p>
+    <br>
 
-	# **Voice Sample Requirements (.wav)**
+	<p><strong>2. English only? </strong> No. XTTS 2 supports many (16+) languages but I have not tried that yet. 
+  <p>
 
-	To get the best results from our free text-to-speech system, 
-	please follow these guidelines carefully.
+  	The better the quality and specs of the sample file, the better the resulting generated audiobook  
+  	I have zero experience with digital audio files so the guidance below on a voice .wav sampling file that you would provide for your recording below comes straight off the internet.     
+	<p><strong>2. Can you supply your own voice?  </strong> Yes. Just provide the WAV file in an email. Here are some general guidelines.
+  <p>
 
-	## **1\) Length**
+  	The better the quality and specs of the sample file, the better the resulting generated audiobook  
+  	I have zero experience with digital audio files so the guidance below on a voice .wav sampling file that you would provide for your recording below comes straight off the internet. 
 
-	* **8 to 12 seconds**  
-	* One continuous take  
-	* No edits, no fades, no music
+  <pre>
+  	---
 
-	Longer is fine if it stays clean, 
-	but under 8 seconds is usually too little signal 
-	for consistent modeling.
+  	# **Voice Sample Requirements (.wav)**
 
-	---
+  	To get the best results from our free text-to-speech system, 
+  	please follow these guidelines carefully.
 
-	## **2\) Speaking Style**
+  	## **1\) Length**
 
-	* Calm, steady pace  
-	* Clear enunciation  
-	* Neutral tone  
-	* No shouting  
-	* No whispering  
-	* No exaggerated emotion  
-	* No long pauses  
-	* No laughter or exclamations
+  	* **8 to 12 seconds**  
+  	* One continuous take  
+  	* No edits, no fades, no music
 
-	Think: clear audiobook narration, 
-	not a dramatic performance.
+  	Longer is fine if it stays clean, 
+  	but under 8 seconds is usually too little signal 
+  	for consistent modeling.
 
-	---
+  	---
 
-	## **3\) Recording Environment**
+  	## **2\) Speaking Style**
 
-	* Quiet room  
-	* No background music  
-	* No fan noise  
-	* No keyboard clicks  
-	* No traffic  
-	* No echo-heavy rooms (avoid kitchens, bathrooms)
+  	* Calm, steady pace  
+  	* Clear enunciation  
+  	* Neutral tone  
+  	* No shouting  
+  	* No whispering  
+  	* No exaggerated emotion  
+  	* No long pauses  
+  	* No laughter or exclamations
 
-	If the room sounds “roomy,” your model 
-	will sound roomy forever.
+  	Think: clear audiobook narration, 
+  	not a dramatic performance.
 
-	---
+  	---
 
-	## **4\) Technical Audio Requirements (WAV format)**
+  	## **3\) Recording Environment**
 
-	Submit **uncompressed WAV (PCM)** only.
+  	* Quiet room  
+  	* No background music  
+  	* No fan noise  
+  	* No keyboard clicks  
+  	* No traffic  
+  	* No echo-heavy rooms (avoid kitchens, bathrooms)
 
-	### **Recommended Settings**
+  	If the room sounds “roomy,” your model 
+  	will sound roomy forever.
 
-	* Format: WAV (PCM)  
-	* Sample rate: **44.1 kHz or 48 kHz**  
-	* Bit depth: **16-bit or 24-bit**  
-	* Channels: **Mono preferred**  
-	* No normalization that causes clipping  
-	* No noise reduction artifacts  
-	* No compression (not MP3 converted to WAV)
-</pre>
-	<p>Important:  
-	If you recorded as MP3 and converted to WAV, that does not improve quality. We recommend recording directly to WAV.
+  	---
+
+  	## **4\) Technical Audio Requirements (WAV format)**
+
+  	Submit **uncompressed WAV (PCM)** only.
+
+  	### **Recommended Settings**
+
+  	* Format: WAV (PCM)  
+  	* Sample rate: **44.1 kHz or 48 kHz**  
+  	* Bit depth: **16-bit or 24-bit**  
+  	* Channels: **Mono preferred**  
+  	* No normalization that causes clipping  
+  	* No noise reduction artifacts  
+  	* No compression (not MP3 converted to WAV)
+  </pre>
+  	<p>Important:  
+  	If you recorded as MP3 and converted to WAV, that does not improve quality. We recommend recording directly to WAV.
 	
-	
-</section>	 
-
+  </div>
+</section>
 
 
 
