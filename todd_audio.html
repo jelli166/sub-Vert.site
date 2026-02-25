@@ -213,7 +213,9 @@ hr.custom1 {
     <div class="brand-text">
   <p>
 <h2>Welcome to Todd Audio</h2>
-<p>A side project to provide freebie, full length draft Audiobooks -- with the goal of serving up AI-voiced narrations for budget-minded long-form writers -- intended for draft review, pacing analysis, line edits, and beta reads of full chapters, acts, and complete novels (cuz we're weary of blowing our monthly Slurpie budget on ElevenLabs).
+	<h3>** Full-Length Draft Audiobooks **</h3>
+	<h5><s>Cheap</s> <u>(free during Beta)</u> </h5>
+	<p>Audio from a Local AI Coqui XTTS v2 server, Todd's freebie side project to provide extended length AI-voiced narrations, Intended for budget-minded writers who want to listen/edit/proof their drafts, or send them off to alpha and beta readers. Why? a) he's tired blowing his monthly Slurpie budget on ElevenLabs and wonders if this might be useful to other folks; b) he's a fat cat with too much time on his hands. (Answer: A)</p>
 				</div>
   </div>
 
@@ -221,20 +223,21 @@ hr.custom1 {
   <div class="brand-header">
     <div class="brand-text">
   <p>
-<h4>Beta Invitation - February 2026</h4>
-<p>Todd the Kitty is looking for folks interested in trying this out.
-<p>How it works: pick your narrator voice below, send your markdown to a provided secure folder--we'll grab the text file, prep it to fix common TTS issues, and then run it through a local Coqui XTTS 2 model to generate the audio. This generates a decent (imho) MP3 narration. We'll upload the MP3 back to that folder and once you retrieve it, all files are erased and the folder dropped. During the Beta, if you prefer to use email, just let us know.
+<h4>Beta Invitation - February 25, 2026</h4>
+<p>Todd the Kitty is looking for anyone interested in trying this out.
+<p>How it works: 1) pick (below) or provide your narrator voice sample WAV; 2) send or give access to your markdown file. 
+	<p>We run it (offline during the Beta). The file is parsed and passed to Coqui XTTS v2 on a local onsite GPU to generate chapters in WAV and MP3 audio. We send them back.
 
-<br><p><h4>Message @rufus1422 on Discord or email us at: rufuslaguerre@proton.me</h4>
+<br><p><h4>Email us at:  rufuslaguerre@proton.me</h4>
 	
+<br><a href="#mp3" style="color: #dddddd;">Samples</a>
 <br><br><a href="#faq" style="color: #dddddd;">FAQ</a>
-<br><br><a href="#mp3" style="color: #dddddd;">Samples</a>
 		</div>
   </div>
 
   <section class="release">
     <h2 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">Voices</h2>
-	<h4 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">  Coqui XTTS 2 requires a short (~10 seconds) voice sample to capture the speaker’s vocal fingerprint—tone, pitch, cadence, and texture—then applies those characteristics when generating the audiobook so that the spoken narration then approximates that voice. You can provide your own voice sample if you prefer.</h4>
+	<h4 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">  Coqui XTTS v2 requires a short (~10 seconds) voice sample to capture the speaker’s vocal fingerprint—tone, pitch, cadence, and texture—then applies those characteristics when generating the audiobook so that the spoken narration then approximates that voice. You can provide your own voice sample if you prefer.</h4>
 	<h5 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">(source: LibriTTS-R / LibriVox (Public Domain, for non-commercial use)</h5>
     <div class="table-container">
       <table>
@@ -387,19 +390,23 @@ hr.custom1 {
 
 <p>> <u>Will this produce a perfect, commercial-quality audiobook for me?</u> Nope, no way, and that's not the intended use. It's a throw-away, meant as an additional aid during editing and review. Also, depending on the voice and contents, the file is for personal (non-commercial) use only, not for upload to Audible. It's probably okay to send it to your mom (as long as you don't charge her).</p><br>
 
-<p>> <u>Can this generate audio in other languages besides English?</u> Yes, Coqui XTTS 2 supports many (16+) languages, but I have no experience so far. And bets are off on proper handling of US vs. UK variations. Regardless, happy to give it a try. There will be some testing required and the intake prep script will need to be updated to support TXT UTF-8 encoding.</p><br>
+<p>> <u>Can this generate audio in other languages besides English?</u> Yes, Coqui XTTS v2 supports many (16+) languages, but I have no experience so far. And bets are off on proper handling of US vs. UK variations. Regardless, happy to give it a try. There will be some testing required and the intake prep script will need to be updated to support TXT UTF-8 encoding.</p><br>
 
-<p>> <u>Can I provide my own narrator voice?</u> Yes. This is big advantage with XTTS 2, but you'll want to have a high fidelity voice 10 second sample. Contact us about this. XTTS 2 has some specific ways it wants voice sample WAV. The better the quality and specs of the sample file, the better the resulting generated audiobook. I am not a digital audiophile so the guidance I have (on using ffmpeg) comes straight from a bot.<p><br>
+<p>> <u>Can I provide my own narrator voice?</u> Yes. This is one of the advantages with XTTS v2, but you'll want to have a high fidelity voice 10 second sample. Contact us about this. XTTS v2 has some specific ways it wants voice sample WAV. The better the quality and specs of the sample file, the better the resulting generated audiobook. I am not a digital audiophile so the guidance I have (on using ffmpeg) comes straight from a bot.<p><br>
 
-<p>> <u>Is there a way to correct TTS word pronunciation glitches?</u> Yes, but this is a work in progress. The script already does a small set of expansions of common abbreviations (ex. Mr. to "Mister"). There is also a capability for a specific to your book lexicon so that specific un-phonetic words or ones with accent characters (ex. protégé) can be improved as to how they are handled by XTTS.</p><br>
+<p>> <u>Is there a way to correct TTS word pronunciation glitches?</u> Yes, but this is a work in progress. The script already does a small set of expansions of common abbreviations (ex. Mr. to "Mister"). There is also a capability for a specific to your book lexicon so that specific un-phonetic words or ones with accent characters (ex. protégé) can be improved as to how they are handled by XTTS v2.</p><br>
 
-<p>> <u>How is the voice and audio quality?</u> Mostly okay. This is another ongoing work-in-progress (I know, that’s redundant (but accurate)). The quality of the ten second voice sample WAV that seeds XTTS 2 seems to matter a lot. We can query the technical specs of the file with ffmpeg to look at general characteristics but I'm sure there are other more subtle and nuanced technical factors that determine if the sample works well. We need a professional.</p><br> 
+<p>> <u>How is the voice and audio quality?</u> Mostly okay. This is another ongoing work-in-progress (I know, that’s redundant (but accurate)). The quality of the ten second voice sample WAV that seeds XTTS v2 seems to matter a lot. We can query the technical specs of the file with ffmpeg to look at general characteristics but I'm sure there are other more subtle and nuanced technical factors that determine if the sample works well. We need a professional.</p><br> 
 
 <p>> <u>Can we do revisions to improve the results?</u> Absolutely. Although the turnaround time will be variable. There will definitely be tuning and fix opportunities. (In the future we're planning an automated "revise and drop it in" for re-runs.)</p><br>
 
 <p>> <u>Is there a limit on the word count of the Markdown?</u> Not really at this point. It'd be fun to try Joyce's Ulysses or War and Peace; but yeah, I'd like to keep the file sizes and runtimes within reason (less than 4 hours). A sample run of 46,000 words (The Turn of the Screw, by Henry James) took 65 minutes to generate a 5 hours and 23 minutes WAV (958MB) and MP3 (124MB).</p><br>
 
 <p>> <u>Is my manuscript safe from theft?</u> As authors ourselves, we commit to keeping your IP  (Intellectual Property) files private and secure for the time we have them, and we will promptly and securely erase them (given that they'll be sitting in a restricted Google Drive or iCloud folder). While here, no one will read, "borrow", post, or duplicate your work. During this manual testing period, we'll spot check the audio but that's the extent of it. And while we're off on the legal tangent, and to state the obvious, please do not send us any material that is private, illegal, confidential, high value, government secrets from boxes in your bathroom, whatever...</p><br>
+
+<p>> <u>Why use markdown for input?</u> Markdown is a common near-text format. For example, Google Docs and Novelcrafter provide for direct export to Markdown. The convention for indicating Act and Chapter breaks with asterisks is used to separate a big input file into separate chapters and those are then submitted to the TTS. There are additional substitutions and fixes done in a pre-process step to reduce pronunciation and random artifacts. XTTS-v2 does not specifically “support” or “understand” Markdown. It just sees plain text.</p><br>
+
+<p>> <u>Any thoughts on a post-process Quality Control to check the quality of the audio output?</u> Thoughts? Yes. Reality? Not yet. We've some quick tests with Whisper (Open AI Speech to Text) where the output WAV is fed in to Whisper to convert the audio back to text and then do a "diff" to compare that with the input md file.  Results are "mixed".  This will always be an approximation comparison.</p><br>
 
 <p>> <u>Is a full novel delivered as a single MP3?</u> That's not the default behavior. The script looks for chapter breaks and will divy up each chapter and put it into a separate WAV file when generating audio. When the run is finished, we create MP3 files from the WAV since they are about one tenth the size. If you want to combine them, that seems easy with a utility like ffmpeg.</p><br>
 
@@ -477,7 +484,9 @@ hr.custom1 {
   	If you recorded as MP3 and converted to WAV, that does not improve quality. We recommend recording directly to WAV.
 	
 -->	
-	
+
+	<a href="#top" style="color: #dddddd;">Back to top</a><p>
+
   </div>
 </section>
 
