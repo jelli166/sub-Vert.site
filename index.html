@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sub-Vert Stories</title>
-    <!-- Load Tailwind CSS -->
+    <title>subVert Stories</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Lucide icons for UI elements -->
     <script type="module" src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         /* Custom Tailwind Configuration for Noir Aesthetic */
@@ -34,12 +32,11 @@
         /* Banner styling for 11:2 ratio and positioning the title */
         .banner-container {
             position: relative;
-            /* 11:2 aspect ratio: 100% width, (2/11) * 100% height */
             height: 0;
             padding-bottom: calc(100% * 2 / 11); 
             width: 100%;
             overflow: hidden;
-            background-color: #3f3f46; /* Placeholder background */
+            background-color: #3f3f46;
         }
 
         .banner-image {
@@ -52,19 +49,15 @@
         }
 
         .banner-title {
-			position: absolute;
-			            bottom: 8%; /* 10% from the bottom */
-			            right: 30%;    /* 5% from the left */
-			            transform: none; /* Removed the centering transform */
-            font-size: 1.8rem; /* Large text */
-            font-weight: 300; /* Extra bold */
+            position: absolute;
+            bottom: 8%;
+            right: 30%;
+            transform: none;
+            font-size: 1.8rem;
+            font-weight: 300;
             letter-spacing: 0.4rem;
-   		     color: #d97706; /* Dark Orange color */
-		               /* Enhanced shadow for grit and visibility */
-		               text-shadow: 0 0 10px rgba(0,0,0,0.8), 0 0 5px rgba(217, 119, 6, 0.5); /* Matching shadow glow */
-		               /* Removed mix-blend-mode for better contrast control */
-
-
+            color: #d97706; /* Dark Orange color */
+            text-shadow: 0 0 10px rgba(0,0,0,0.8), 0 0 5px rgba(217, 119, 6, 0.5);
         }
 
         /* Mobile specific adjustments */
@@ -75,7 +68,6 @@
             }
         }
         
-        /* Custom image container for left-justified image + right text */
         .content-image-text {
             display: flex;
             flex-direction: column;
@@ -92,238 +84,158 @@
             border: 1px solid var(--color-accent);
         }
 		
-		
-		/* ADD - Book image row */
+		/* Book image row with Noir Aesthetic */
 		.book-row {
-		  display: flex;
-		  justify-content: center;
-		  gap: 20px;
-		  padding: 40px 0;
-		  flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding: 40px 0;
+            flex-wrap: wrap;
 		}
 
-		/* Book covers */
 		.book-row img {
-		  width: 250px;
-		  height: auto;              /* better scaling + preserves proportions */
-		  object-fit: cover;
-		  border: 2px solid #333;
-		  box-shadow: 0 0 10px #000;
-		  display: inline-block;     /* ensures transform works cleanly */
-		  cursor: pointer;
-		  transition: transform 0.2s ease;
+            width: 250px;
+            height: auto;
+            object-fit: cover;
+            border: 1px solid #3f3f46;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            display: inline-block;
+            cursor: pointer;
+            /* Noir Filter: High contrast and low saturation */
+            filter: grayscale(40%) contrast(110%) brightness(90%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		}
 
 		/* Hover effect */
 		.book-row img:hover {
-		  transform: scale(1.08);
+            transform: scale(1.05) translateY(-5px);
+            filter: grayscale(0%) contrast(100%) brightness(110%);
+            border-color: #fca5a5;
+            box-shadow: 0 0 15px rgba(252, 165, 165, 0.4), 0 0 30px rgba(0, 0, 0, 1);
 		}
 
-		/* END OF ADD */
-		
-		
+        @media (max-width: 640px) {
+            .book-row img {
+                width: 160px;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
-<link rel="icon" href="favicon.ico?v=2">
+    <link rel="icon" href="favicon.ico?v=2">
 
-    <!-- Primary Container -->
     <div id="app" class="max-w-7xl mx-auto shadow-2xl shadow-black">
 
-        <!-- Header and Navigation -->
         <header class="sticky top-0 z-50 bg-gray-900 border-b border-gray-700/50">
             <nav class="flex justify-between items-center p-4">
-                <a href="#home" onclick="showPage('home')" class="text-2xl font-bold tracking-widest uppercase text-gray-50 hover:text-red-300 transition duration-300">
-                    
-                </a>
+                <a href="#home" onclick="showPage('home')"></a>
                 
-                <!-- Hamburger Menu Button -->
                 <button id="hamburger-btn" class="md:hidden p-2 rounded-md hover:bg-gray-800 transition duration-300" aria-label="Toggle Menu">
-                    <svg class="w-6 h-6 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="w-6 h-6 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
                 
-                <!-- Desktop Navigation -->
                 <div class="hidden md:flex space-x-6 font-mono text-sm tracking-widest">
-                    <a href="#home" onclick="showPage('home')" class="nav-link hover:text-red-300 transition duration-300">Home</a>
-                    <a href="#stories" onclick="showPage('stories')" class="nav-link hover:text-red-300 transition duration-300">Stories</a>
-                    <a href="#writers" onclick="showPage('writers')" class="nav-link hover:text-red-300 transition duration-300">Writers</a>
-                    <a href="#blog" onclick="showPage('blog')" class="nav-link hover:text-red-300 transition duration-300">Links</a>
-                    <a href="#contact" onclick="showPage('contact')" class="nav-link hover:text-red-300 transition duration-300">Contact</a>
+                    <a href="#home" onclick="showPage('home')" class="nav-link hover:text-red-300">Home</a>
+                    <a href="#stories" onclick="showPage('stories')" class="nav-link hover:text-red-300">Stories</a>
+                    <a href="#blog" onclick="showPage('blog')" class="nav-link hover:text-red-300">Links</a>
+                    <a href="#contact" onclick="showPage('contact')" class="nav-link hover:text-red-300">Contact</a>
                 </div>
             </nav>
             
-            <!-- Mobile Dropdown Menu (Hidden by default) -->
             <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700/50">
-                <a href="#home" onclick="showPage('home'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Home</a>
-                <a href="#stories" onclick="showPage('stories'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Stories</a>
-                <a href="#writers" onclick="showPage('writers'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Staff</a>
-                <a href="#blog" onclick="showPage('blog'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Links</a>
-                <a href="#contact" onclick="showPage('contact'); closeMenu()" class="block p-3 hover:bg-gray-700 transition duration-300">Contact</a>
+                <a href="#home" onclick="showPage('home'); closeMenu()" class="block p-3 hover:bg-gray-700">Home</a>
+                <a href="#stories" onclick="showPage('stories'); closeMenu()" class="block p-3 hover:bg-gray-700">Stories</a>
+                <a href="#blog" onclick="showPage('blog'); closeMenu()" class="block p-3 hover:bg-gray-700">Links</a>
+                <a href="#contact" onclick="showPage('contact'); closeMenu()" class="block p-3 hover:bg-gray-700">Contact</a>
             </div>
         </header>
 
-        <!-- MMM Main Content Wrapper -->
         <main class="page-container p-4 md:p-8">
 
-            <!-- Shared Banner Component -->
             <div class="banner-container mb-10 shadow-xl border border-gray-700/50">
                 <img id="page-banner" class="banner-image" src="images/banner1.webp" alt="Noir city banner image" onerror="this.style.backgroundColor='#4a4a4a'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
                 <h1 id="banner-text" class="banner-title text-gray-50 select-none">Home</h1>
             </div>
 
-            <!-- HOME Page Content -->
             <section id="page-home" class="page-content">
-     
-                <h3 class="text-1xl md:text-3xl mb-6 tracking-tight border-b-2 border-red-300 pb-2">sub-Vert: eBook Releases Coming Soon...</h3>
-					            <p class="text-lg mb-8 text-gray-400 max-w-3xl"></p>
-							   
-            <p class="text-lg mb-8 text-gray-400 max-w-3xl">
-
-	           </p>	
-			       <section class="book-row">
-			   		<a href="bt_info.html">
-			   		  <img src="images/bt_ncover.webp" alt="Book Cover 1">
-			   		</a>
-			   		<a href="wbw_info.html">
-			   		  <img src="images/wbw_ncover.webp" alt="Book Cover 2">
-			   		</a>
-			   		<a href="tf_info.html">
-			   		  <img src="images/tf_ncover.webp" alt="Book Cover 4">
-			   		</a>
-			   		<a href="lros_info.html">
-			   		  <img src="images/lros_ncover.webp" alt="Book Cover 3">
-					</a>
-			   		
-			   		     </section>
-			    
-				<hr>
-				
-			
-                <div class="grid md:grid-cols-3 gap-8 text-center mt-12">
-                    <div class="p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg hover:shadow-red-500/20 transition duration-300">
-                        <span class="text-4xl mb-3 block text-red-300" data-lucide="pencil"></span>
-                        <h3 class="text-xl font-semibold mb-2">Winter 2026: Blogs with Pretzels</h3>
-                        <p class="text-sm text-gray-400">Snuggle weather for salty baked thoughts, and a gastro cleanse.</p>
-                    </div>
-                    <div class="p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg hover:shadow-red-500/20 transition duration-300">
-                        <span class="text-4xl mb-3 block text-red-300" data-lucide="book-open"></span>
-                        <h3 class="text-xl font-semibold mb-2">- sub-Vert Writers -<br>ancient hoary collaborators confabulating </h3>
-                        <p class="text-sm text-gray-400">It's all fiction, not just the stories. Still, we await the regime's demise.</p>
-                    </div>
-                    <div class="p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg hover:shadow-red-500/20 transition duration-300">
-                        <span class="text-4xl mb-3 block text-red-300" data-lucide="feather"></span>
-                        <h3 class="text-xl font-semibold mb-2">Riot in Megalopolis New Year's 2033</h3>
-                        <p class="text-sm text-gray-400">As the influencers outnumber the influenced, the metaphorical implosion begins.</p>
-                    </div>
+                <div class="book-row">
+                    <a href="#bt_info" onclick="showPage('stories')"><img src="images/bt_ncover.webp" alt="Ty Undone"></a>
+                    <a href="#wbw_info" onclick="showPage('stories')"><img src="images/wbw_ncover.webp" alt="Warm Blue Waters"></a>
+                    <a href="#tf_info" onclick="showPage('stories')"><img src="images/tf_ncover.webp" alt="Trigger Fish"></a>
+                    <a href="#lros_info" onclick="showPage('stories')"><img src="images/lros_ncover.webp" alt="Last Rain of Summer"></a>
                 </div>
+                <hr>
             </section>
-
-            <!-- SSS STORIES Page Content -->
+			
+			
+			
+			
+			
+				
             <section id="page-stories" class="page-content hidden">
                 <h2 class="text-4xl md:text-2xl mb-6 tracking-tight border-b-2 border-red-300 pb-2">New Releases</h2>
                 
-                <div class="content-image-text">
+                <div id="bt_info" class="content-image-text mb-16">
                     <div class="md:w-1/3">
-                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-                             src="images/ty_gallery.webp" 
-                             alt="Cover for a new novel" 
-                             onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-                             src="images/ben_walking.webp" 
-							 alt="Cover for a new novel" 
-                             onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
+                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50 mb-4" src="images/ty_gallery.webp" alt="Ty Undone Cover" />
+                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" src="images/ben_walking.webp" alt="Ben Walking" />
                     </div>
                     <div class="md:w-2/3 text-box">
-                        <p class="font-mono text-sm uppercase text-red-300 mb-2
-						text-4xl md:text-2xl">
-Ty Undone
-						</p>
-                        <p><i>A Novella by Kai D. Waddell and others</i>
-</p>
-<br>
-<br>
-<p><i>
-		Three years after running, Ty is finally safe—if he keeps everyone at arm’s length. Working at a Tucson nursery means dirt, heat, and no one asking questions.
-		Then Ben, a 29-year-old designer new to town, steps into Ty’s world and asks him to build something beautiful for his balcony. Ty accidentally starts building a life, too.
-		To keep what’s growing between them, Ty has to stop treating love like a threat—and Ben has to stop acting like wanting Ty is negotiable.
-<br><br></i></p>
-<hr>
-<p><br><br>
-Twenty-year-old Ty has spent the last three years drifting between temporary nursery jobs, running from a brutal past in Syracuse. When he lands at the Bella Adobe Nursery in Tucson, he tells himself it's just another three-month gardener gig until the owner Isabella makes it start to feel like home.
-				</p><br><p>
-					A guy shows up one morning and walks in a project. Ben is twenty-nine, talented, with a quiet confidence. But beneath that charm, he's adrift, going through the motions of a successful career while wondering why nothing and no one feels quite right. When he hires the quirky, sharp-tongued Ty to design some planters for his balcony, neither expects the connection that sparks between them.
-</p><br><p>
-					What begins as "hanging out", casual dinners and art gallery visits becomes something neither can ignore. But Ty has spent years protecting his heart, and Ben has never questioned the straight path he was on. As their friendship deepens into something more, both must confront difficult truths: Can Ty trust someone enough to stay? Can Ben figure it all out? What he's feeling?
-				</p><br><p>
-					In the glow of desert sunsets and mexican food at Ana's Diner, two quiet souls discover that love doesn't always announce itself with a fireworks finale. Sometimes it arrives quietly but with a longing that survives every hurdle. This tender, slow-burn romance explores the courage they both must have, to choose love, with no clear path and when everything seems impossible, until they touch.
-					</p><br><p>
-Release Date: January 2026
-</p><br><p>
-Contact writerkai@proton.me to download the ARC.
-							</i></p>
-                    </div>
-                </div>
-				<br><br>              
-                <!-- Second story placeholder -->
-                <div class="content-image-text">
-                    <div class="md:w-1/3">
-                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-                             src="images/sarah_lucy_1.webp" 
-                             alt="Cover for novel" 
-                             onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-         <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-              src="images/sailboat_1.webp" 
-              alt="Cover for novel" 
-              onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-                    <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-                         src="images/sarah_lucy_2.webp" 
-                         alt="Cover for novel" 
-                         onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-                    </div>
-                    <div class="md:w-2/3 text-box">
-                        <p class="font-mono text-sm uppercase text-red-300 mb-2 text-4xl md:text-2xl">
-Warm Blue Waters
-						</p>
-                        <p><i>
-A Novel by Kai D. Waddell
-</i></p>
-<br><br>
-<p>	<i>
-	At 22, Sarah is done with college, and done with her father's expectations. Done with everything except escaping her zero life. Her salvation lies halfway across the world, in Vietnam, on her grandfather's sailboat, the Ella Revela.
-	<br><br>
-	Enter Lucy—a hired Filipina skipper with calloused hands, and zero patience for silly rich girls who can't tie a bowline. Lucy is cold and distant, but she sails Ella with a quiet skill that commands respect. 
-	<br><br>
-	Forced together on the South Pacific, they're oil and water. But the vast ocean doesn't care, and when Grandpa Ted becomes sick and the storms hit, together, they must figure out how to get Ella to a safe harbor. In the darkness of night watches and endless ocean currents, fear and exhaustion set in, but a bond dawns and pulls them together. Tender moments let them find their way to a connection neither expected. 
-	<br><br>
-	<i>WARM BLUE WATERS</i> is a contemporary sapphic romance about opposites who must accept, survive, and learn that salvation isn't a destination—it's the person weathering this storm beside you.
-</p><br><br><p>
-Release Date: Early Spring 2026
-</p><br><p>
-Contact writerkai@proton.me for more information.
-							</i></p>
+                        <p class="font-mono text-red-300 text-4xl md:text-2xl mb-2">Ty Undone</p>
+                        <p><i>A Novella by Kai D. Waddell and others</i></p>
+                        <br>                        <p><i>	</p>	<br>	<br>
+							<p><i>Three years after running, Ty is finally safe—if he keeps everyone at arm’s length. Working at a Tucson nursery means dirt, heat, and no one asking questions. Then Ben, a 29-year-old designer new to town, steps into Ty’s world and asks him to build something beautiful for his balcony. Ty accidentally starts building a life, too.
+									To keep what’s growing between them, Ty has to stop treating love like a threat—and Ben has to stop acting like wanting Ty is negotiable.
+							<br><br></i></p>
+							<hr>
+							<p><br><br>
+							Twenty-year-old Ty has spent the last three years drifting between temporary nursery jobs, running from a brutal past in Syracuse. When he lands at the Bella Adobe Nursery in Tucson, he tells himself it's just another three-month gardener gig until the owner Isabella makes it start to feel like home.
+											</p><br><p>
+												A guy shows up one morning and walks in a project. Ben is twenty-nine, talented, with a quiet confidence. But beneath that charm, he's adrift, going through the motions of a successful career while wondering why nothing and no one feels quite right. When he hires the quirky, sharp-tongued Ty to design some planters for his balcony, neither expects the connection that sparks between them.
+							</p><br><p>
+												What begins as "hanging out", casual dinners and art gallery visits becomes something neither can ignore. But Ty has spent years protecting his heart, and Ben has never questioned the straight path he was on. As their friendship deepens into something more, both must confront difficult truths: Can Ty trust someone enough to stay? Can Ben figure it all out? What he's feeling?
+											</p><br><p>
+												In the glow of desert sunsets and mexican food at Ana's Diner, two quiet souls discover that love doesn't always announce itself with a fireworks finale. Sometimes it arrives quietly but with a longing that survives every hurdle. This tender, slow-burn romance explores the courage they both must have, to choose love, with no clear path and when everything seems impossible, until they touch.
+												</p><br><p>
+			                        <hr class="my-6">
+                  
+                        <p>Contact writerkai@proton.me to download the ARC.</p>
                     </div>
                 </div>
 
-				<br><br>              
-                <!-- THIRD story placeholder -->
-                <div class="content-image-text">
+                <div id="wbw_info" class="content-image-text mb-16">
                     <div class="md:w-1/3">
-                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-                             src="images/meeka1.webp" 
-                             alt="Cover for novel" 
-                             onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-                             src="images/torn1.webp" 
-                             alt="Cover for novel" 
-                             onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
+                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50 mb-4" src="images/sarah_lucy_1.webp" alt="Warm Blue Waters" />
+                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50 mb-4" src="images/sailboat_1.webp" alt="Sailing" />
+                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" src="images/sarah_lucy_2.webp" alt="Sarah and Lucy" />
+                    </div>
+                    <div class="md:w-2/3 text-box">
+                        <p class="font-mono text-red-300 text-4xl md:text-2xl mb-2">Warm Blue Waters</p>
+                        <p><i>A Novel by Kai D. Waddell</i></p>
+                    	<br><br>
+						<p>	<i>
+							At 22, Sarah is done with college, and done with her father's expectations. Done with everything except escaping her zero life. Her salvation lies halfway across the world, in Vietnam, on her grandfather's sailboat, the Ella Revela.
+							<br><br>
+							Enter Lucy—a hired Filipina skipper with calloused hands, and zero patience for silly rich girls who can't tie a bowline. Lucy is cold and distant, but she sails Ella with a quiet skill that commands respect. 
+							<br><br>
+							Forced together on the South Pacific, they're oil and water. But the vast ocean doesn't care, and when Grandpa Ted becomes sick and the storms hit, together, they must figure out how to get Ella to a safe harbor. In the darkness of night watches and endless ocean currents, fear and exhaustion set in, but a bond dawns and pulls them together. Tender moments let them find their way to a connection neither expected. 
+							<br><br>
+							<i>WARM BLUE WATERS</i> is a contemporary sapphic romance about opposites who must accept, survive, and learn that salvation isn't a destination—it's the person weathering this storm beside you.
+						</p><br><br><p>
+						
+						
+						
+                    </div>
+                </div>
+
+                <div id="lros_info" class="content-image-text mb-16">
+                    <div class="md:w-1/3">
+                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50 mb-4" src="images/meeka1.webp" alt="Meeka" />
+                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" src="images/torn1.webp" alt="Torn" />
                     </div>
                     <div class="md:w-2/3 text-box">		
-                        <p class="font-mono text-sm uppercase text-red-300 mb-2 text-4xl md:text-2xl">
-The Last Rain of Summer
-						</p>
-                        <p><i>
-A Novel by Kai D. Waddell
-</i></p>						
+                        <p class="font-mono text-red-300 text-4xl md:text-2xl mb-2">The Last Rain of Summer</p>
+                        <p><i>A Novel by Kai D. Waddell</i></p>
 <br><br>
 <p>	<i>
 Meeka thought she had things figured out. Keep your head down, keep your secrets safe, live alone, work at Herb's resort just down the beach, and hang out with Fa, her best and only friend--and barista extraordinaire. Avoid everyone else and never, ever let anyone get close. It's a simple life in a sleepy Thai village—quiet, predictable, safe. Until the day she spills an enormous red slushie all over herself and meets Torn for the first time.
@@ -337,394 +249,134 @@ But Torn isn't like the others who've drifted through her life. He helps out whe
 
 Then comes the night of Fa's birthday party. The rain. The kiss that changes everything. And Meeka's absolute certainty that she's about to ruin the best thing that's ever walked into her life.
 </p><br><p>
-
 Perfect for readers who love slow-burn romance, found family, and the fringe world of Thailand's third gender, the characters show their courage and risk their hearts before a fateful summer ends.
 					</p><br><p>
-Release Date: Summer 2026
-</p><br><p>
-	Contact writerkai@proton.me for more information.
-								</i></p>
+						                     
                     </div>
                 </div>
-				<br><br>              
-				
-				
-                <!-- Fourth story placeholder -->
-                <div class="content-image-text">
+
+                <div id="tf_info" class="content-image-text">
                     <div class="md:w-1/3">
-                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-                             src="images/trigger_fish.webp" 
-                             alt="Cover for novel" 
-                             onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
+                        <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" src="images/trigger_fish.webp" alt="Trigger Fish" />
                     </div>
                     <div class="md:w-2/3 text-box">		
-                        <p class="font-mono text-sm uppercase text-red-300 mb-2 text-4xl md:text-2xl">
-Trigger Fish
-						</p>
-                        <p><i>
-A Novel by Kai D. Waddell, et al.
-</i></p>						
-<br><br>
-<p>	<i>
-		Suri has always been an outsider in his own life. Nicknamed “Ikan Pemicu,” the Little Triggerfish, for his ability to navigate Jakarta’s social waters, he’s kept his heart behind a glass wall, certain he’s incapable of the passion his family expects. But when his father’s "business" turns deadly and a forced marriage looms, Suri flees to the rainy streets of Vancouver.
-	Stranded and hunted by his father’s hitmen, Suri is taken in by Max, a soulful gay club DJ. What starts as a desperate arrangement, Suri, a shut-in and Max's live-in "houseboy", slowly turns into something much deeper. Between the scent of spicy sambal in the kitchen and finding that he and Max connect as roomies and then more, Suri’s walls begin to crumble.
-	For the first time, Suri isn't just a pawn in his father's crooked world; he’s growing up and discovering his own truth. But with a target on his back, "happily ever after" isn't guaranteed. To claim a future with Max, Suri will have to outsmart a killer and prove that the Little Triggerfish has a bite no one saw coming.
-						</p><br><p>
-	Release Date: Spring 2026
-	</p><br><p><i>
-		Contact writerkai@proton.me for more information.
-							</i></p>
+                        <p class="font-mono text-red-300 text-4xl md:text-2xl mb-2">Trigger Fish</p>
+                        <p><i>A Novel by Kai D. Waddell, et al.</i></p>
+                        <br>
+						<br>
+						<i><p>
+								Suri has always been an outsider in his own life. Nicknamed “Ikan Pemicu,” the Little Triggerfish, for his ability to navigate Jakarta’s social waters, he’s kept his heart behind a glass wall, certain he’s incapable of the passion his family expects. But when his father’s "business" turns deadly and a forced marriage looms, Suri flees to the rainy streets of Vancouver.
+							Stranded and hunted by his father’s hitmen, Suri is taken in by Max, a soulful gay club DJ. What starts as a desperate arrangement, Suri, a shut-in and Max's live-in "houseboy", slowly turns into something much deeper. 
+						</p><br><p>Between the scent of spicy sambal in the kitchen and finding that he and Max connect as roomies and then more, Suri’s walls begin to crumble.
+							For the first time, Suri isn't just a pawn in his father's crooked world; he’s growing up and discovering his own truth. But with a target on his back, "happily ever after" isn't guaranteed. To claim a future with Max, Suri will have to outsmart a killer and prove that the Little Triggerfish has a bite no one saw coming.
+												</p><br><p></i>
+													
                     </div>
                 </div>
             </section>
 
-
-
-
-
-
-            <!-- WWW  WRITERS Page Content -->
-            <section id="page-writers" class="page-content hidden">
-                <h4 class="text-2xl md:text-1xl  mb-6 tracking-tight border-b-2 border-red-300 pb-2"><br><u>December 2025 Update:</u>  Most of our US staff have chosen to go into the virtual underground and be off social media. Please contact Kai with any requests or questions.</h4>
-                <br><br><p></p>
-                 <div class="content-image-text">
-                     <div class="md:w-1/3">
-                         <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-                              src="images/marna_bio.webp" 
-                              alt="Portrait of staff" 
-                              onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-                     </div>
-                     <div class="md:w-2/3 text-box">
-                         <p class="font-mono text-sm uppercase text-red-300 mb-2">Marna Lucretia-Stone</p>
-                         <p>
-
-A former HOA board member, Marna Lucretia-Stone, aka "Feral Karen", has channeled the same incandescent rage that once defined her audit of the community pool pass system into her career as a literary provocateur. She has become the voice of the aggrieved after her legendary altercation in a T J Maxx parking lot involving an expired gift card and some hot pink leg warmers. Now, with her lease on a Mercedes G-Wagon dangling by a thread and the repo truck circling the block, she offers a raw, unfiltered perspective on denial and aggression.</p><br><p>
-Marna is a woman who believes that a restraining order is just a sign of commitment. She'd love to sell you a case of expired Amway detergent.
-                         </p>
-                     </div>
-                 </div>
-				 
-<br> <br>
-				                  <div class="content-image-text">
-				                      <div class="md:w-1/3">
-				                          <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-				                               src="images/rufus_bio.webp" 
-				                               alt="Portrait of a writer" 
-				                               onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-				                      </div>
-				                      <div class="md:w-2/3 text-box">
-				                          <p class="font-mono text-sm uppercase text-red-300 mb-2">Rufus LaGuerre</p>
-				                          <p>
-				  A former Korfball legend, Rufus La Guerre, uses his notorious climax avoidance as a champion of the unsellable, a connoisseur of the pretentious, and a cheerleader for any writer whose goal is clicks and spamming KDP with several novels a day. While his competitors are busy minting money with celebrity memoirs, cookbooks, and cookie-cutter thrillers, Rufus is deep in the trenches of futility, valiantly pushing for the publication of a 900-page novel about a man who talks to his socks. "It's the next Ulysses!" 
-				  </p><br><p> 
-			  	<a href="https://www.youtube.com/watch?v=Dp0Bt2cbcc8"
-			  	   target="_blank"
-			  	   rel="noopener noreferrer"
-			  	   class="text-blue-500 underline hover:text-blue-300">
-Check out his interview with one of our patrons.
-			  	</a>
-			
- 				                          </p>
-				                      </div>
-				                  </div>
-	
-	<br> <br>
-
-			 
-
-					                  <div class="content-image-text">
-					                      <div class="md:w-1/3">
-					                          <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-					                               src="images/ejfranklin_bio.webp" 
-					                               alt="Portrait of a writer" 
-					                               onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-					                      </div>
-					                      <div class="md:w-2/3 text-box">
-					                          <p class="font-mono text-sm uppercase text-red-300 mb-2">E. J. Franklin</p>
-					                          <p>
-												  <br>
-					E. J. Franklin has been teetering on the edge of relevance since the Ford administration, though relevance has, thus far, declined to return his calls. A survivor of Chicago’s punk-disco golden age (he once got ejected from a club for trying to start a mosh pit during a Donna Summer remix), he arrived in the city during the Blizzard of ’77 after leaping onto a freight train in Wabash, Indiana.
-										</p><br><p>
-			 	
-	 				                          </p>
-					                      </div>
-					                  </div>
-				 
-<br> 
-
-    <br> <br> <br>           
-                <div class="mt-8 p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg">
-                    <p class="text-xl font-semibold mb-2 text-red-300">Other Shadow Brokers arriving soon.</p>
-                    <p class="text-gray-400">
-						
+ <!--   removed staff writers silliness 2/24/26
+	            <section id="page-writers" class="page-content hidden">
+                <h4 class="text-2xl mb-6 border-b-2 border-red-300 pb-2">Underground Staff</h4>
+                <div class="content-image-text mb-10">
+                    <div class="md:w-1/3"><img class="w-full h-auto rounded-lg" src="images/marna_bio.webp" alt="Marna" /></div>
+                    <div class="md:w-2/3 text-box">
+                        <p class="font-mono text-red-300 mb-2">Marna Lucretia-Stone</p>
+                        <p>A former HOA board member turned literary provocateur.</p>
+                    </div>
                 </div>
             </section>
-
-
-
-
-
-
-            <!-- LINKS and BLOG Page Content -->
-<section id="page-blog"> 
- 
-				
-				
-<!--    here to add will and emma and naomi + steve + rose + david + Jen links -->                
-                <!-- Blog Post 1 -->
-             <article class="mb-10 p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold mb-4 text-red-300">Resource and Staff links - no further updates</h3>
-                    <div class="space-y-4 text-gray-300">
-                   			<hr><br>
-							<a href="todd_audio.html#top"><u>Todd TTS Audiobook Builder - Early Beta | Feb 2026</u></a>
-							<p>An AI-voiced narration service built specifically for novelists and long-form nonfiction writers. Upload your text to a secure folder, pick the voice of your speaker, and offline we'll generate your audio. Designed for draft review, pacing analysis, and beta reads of full chapters, acts, and complete novels.</p>
-							<br><br>
-							<hr><br>
-							<a href="ty_undone_gallery.html"><u>Story Character Images for <i>Ty Undone</i></u></a>
-							<p>The link above below contain imagined images of the characters in our stories. Some of the images may reveal story moments, so spoiler-sensitive readers might want to skip by. Also, many readers do not like to have images that put pre-ordain the look and vibe of a character (because they do a much better job of visualizing the right person as they read). We get that. We're just offering these up for those that might enjoy them. (Oh, and sorry, one more thing, these images come from an AI image generator. If you have an issue with this, again, skip by.) </p>
-							<!-- 
-							<a href="naomi_links.html"><u>Book Cover Design Samples</u></a>
-					<br><br>
-                    </div>.  -->
-                </article>				
-				
-<!--
-<br><br><a href="warm_blue_gallery.html"><u>Story Character Images for <i>Warm Blue Waters</i></u></a>
-<br><br><a href="tlros_gallery.html"><u>Story Character Images for <i>The Last Rain of Summer</i></u></a>
-<br><br><a href="trigfish_gallery.html"><u>Story Character Images for <i>Trigger Fish</i></u></a>	
--->				
-							<br><br>
-		            </div>
-                </article>
-			
-					
-
-                <!-- Blog Post 2 
+-->
+	 
+            <section id="page-blog" class="page-content hidden"> 
                 <article class="mb-10 p-6 bg-gray-800/70 border border-gray-700 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold mb-4 text-red-300">December 05 2025</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-red-300">Resource and Staff links</h3>
                     <div class="space-y-4 text-gray-300">
-                        <p>
-							Random from discord skunkmonkey — 11/29/2024 6:40 PM
-								The Nerdy Novelist recently reminded me of a phrase I liked: Warren McKenzie said "The first 10,000 pots are the hardest." Meaning everyone sucks in the beginning, don't try for perfection when you're starting out. You'll just get yourself bogged down in endless revisions. It's better to just keep writing, and let yourself improve with each book. Now obviously you aren't going to want to publish your books until they are good, but if you're just starting out then why even worry about publishing? Writing is about having fun. If you think you're going to make money by writing, then I'd say stop watching YouTube. Those guys just want views. The term starving artist applies to authors more than any other profession. Your early books will probably come with a price tag instead of a paycheck. There's no need to race to the publisher.
-							</p>
-							<br>
-							<p>
-							</p>
+                        <hr><br>
+                        <a href="todd_audio.html#top" class="underline hover:text-red-300">Todd TTS Audiobook Builder - Early Beta | Feb 2026 </a>
+                         : AI-voiced narration service built for novelists.
+                        <br>
+						<hr><br>
+                        <a href="ty_undone_gallery.html" class="underline hover:text-red-300">Story Character Images for Ty Undone </a>
+                         : Story scenes and characters from Midjourney (beware of spoilers).
                     </div>
                 </article>
-					
-					-->
             </section>
 
-            <!-- CONTACT Page Content -->
             <section id="page-contact" class="page-content hidden">
-                    <h3 class="text-2xl font-semibold mb-4 text-red-300">   </h3>
- <h2 class="text-4xl md:text-2xl  mb-6 tracking-tight border-b-2 border-red-300 pb-2"></h2>
-                 
-				                  <div class="content-image-text">
-				                      <div class="md:w-1/3">
-				                          <img class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-700/50" 
-				                               src="images/rainbow_heart.webp" 
-				                               alt="heart" 
-				                               onerror="this.style.backgroundColor='#525252'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';" />
-				                      </div>
-				                      <div class="md:w-2/3 text-box">
-				                          <p class="font-mono text-sm uppercase text-red-300 mb-2">Please contact Kai at writerkai@proton.me</p>
-				                          <p>
-											  <br>
-									</p><br><p>
-		 	 				                          </p>
-				                      </div>
-				                  </div>
-
-        <!-- removed the dummy forms for contact -->
-					
+                <h2 class="text-4xl md:text-2xl mb-6 border-b-2 border-red-300 pb-2"><i>Soon...</i></h2>
+                <div class="content-image-text">
+                    <div class="md:w-1/3"><img class="w-full h-auto rounded-lg" src="images/rainbow_heart.webp" alt="Heart" /></div>
+                    <div class="md:w-2/3 text-box">
+                        <p class="font-mono text-red-300 mb-2">Contact Kai at writerkai@proton.me</p>
+                    </div>
+                </div>
             </section>
         </main>
-		
-		
-		
-		
-		
-		
-        <!-- Footer (Consistent across all pages) -->
-        <!-- Footer (Consistent across all pages) -->
-        <!-- Footer (Consistent across all pages) -->
-        <!-- Footer (Consistent across all pages) -->
+
         <footer class="bg-gray-900 border-t border-gray-700/50 p-6 text-center">
-            
-            <!-- Social Icons and Links -->
             <div class="flex justify-center space-x-6 mb-4">
-                <!-- Substack -->
-				
-				<a href="https://substack.com/@writerkai"
-				   target="_blank"
-				   rel="noopener noreferrer"
-				   aria-label="Substack"
-				   class="text-gray-400 hover:text-orange-400 transition duration-300">
-
-				    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-				        <!-- Top bar -->
-				        <rect x="3" y="4" width="18" height="3"></rect>
-				        <!-- Middle bar -->
-				        <rect x="3" y="9" width="18" height="3"></rect>
-				        <!-- Bottom “paper” shape -->
-				        <path d="M3 14h18v7l-9-3-9 3z"></path>
-				    </svg>
-
-				</a>
-				
-                
-                <!-- Instagram -->
-				<a href="https://instagram.com/kaiw.rites"
-				   target="_blank"
-				   rel="noopener noreferrer"
-				   aria-label="Instagram"
-				   class="text-gray-400 hover:text-red-300 transition duration-300">
-				    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-				        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-				        <circle cx="17.5" cy="6.5" r="1.5"></circle>
-				    </svg>
-				</a>
-				
-				
-		                
-                <!-- REMOVED Contact (Email) -->
- 
+                <a href="https://substack.com/@writerkai" target="_blank" class="text-gray-400 hover:text-orange-400">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="3"></rect><rect x="3" y="9" width="18" height="3"></rect><path d="M3 14h18v7l-9-3-9 3z"></path></svg>
+                </a>
+                <a href="https://instagram.com/kaiw.rites" target="_blank" class="text-gray-400 hover:text-red-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><circle cx="17.5" cy="6.5" r="1.5"></circle></svg>
+                </a>
             </div>
-
-            <!-- Legal/Privacy Text -->
-            <p class="text-xs text-gray-500 mb-1 font-mono tracking-widest">
-                No cookies. We do not track.
-            </p>
-            <p class="text-xs text-gray-500">
-                &copy; 2026 Haven Subversion Books, Ltd.
-            </p>
+            <p class="text-xs text-gray-500 mb-1 font-mono tracking-widest">No cookies. We do not track.</p>
+            <p class="text-xs text-gray-500">&copy; 2026 Haven Subversion Books, Ltd.</p>
         </footer>
     </div>
 
-    <!-- JavaScript for Navigation and Form Logic -->
     <script>
-        // Pages configuration
+        // Pages configuration - Including 'writers' so showPage can hide it correctly
         const pages = ['home', 'stories', 'writers', 'blog', 'contact'];
         const bannerText = document.getElementById('banner-text');
 
-        /**
-         * Shows the requested page and hides all others. Updates the URL hash.
-         * @param {string} pageId - The ID of the page to show (e.g., 'home', 'stories').
-         */
         function showPage(pageId) {
-            // Hide all pages
+            // Anchor awareness: If ID contains '_info', target 'stories' page first
+            let actualPageId = pageId;
+            if (pageId.includes('_info')) {
+                actualPageId = 'stories';
+            }
+
             pages.forEach(id => {
-                document.getElementById(`page-${id}`).classList.add('hidden');
+                const el = document.getElementById(`page-${id}`);
+                if (el) el.classList.add('hidden');
             });
 
-            // Show the requested page
-            const targetPage = document.getElementById(`page-${pageId}`);
+            const targetPage = document.getElementById(`page-${actualPageId}`);
             if (targetPage) {
                 targetPage.classList.remove('hidden');
-                // Update banner text based on page
-                if (pageId === 'home') {
-                    bannerText.textContent = '';
-                } else {
-                    // Capitalize the first letter and use a stylized name for internal pages
-                    bannerText.textContent = pageId.charAt(0).toUpperCase() + pageId.slice(1);
-                }
-                
-                // Update URL hash without causing a full page reload
+                bannerText.textContent = actualPageId === 'home' ? '' : actualPageId.charAt(0).toUpperCase() + actualPageId.slice(1);
                 history.pushState(null, null, `#${pageId}`);
             }
-            
-            // Re-render Lucide icons if any were added dynamically (not strictly needed here but good practice)
             lucide.createIcons();
         }
 
-        /**
-         * Initializes the page based on the URL hash or defaults to 'home'.
-         */
         function initializePage() {
-            let page = window.location.hash.substring(1);
-            if (!page || !pages.includes(page)) {
-                page = 'home';
-                history.replaceState(null, null, `#home`);
+            let hash = window.location.hash.substring(1);
+            if (hash.includes('_info')) {
+                showPage('stories');
+                setTimeout(() => {
+                    const el = document.getElementById(hash);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else if (!hash || !pages.includes(hash)) {
+                showPage('home');
+            } else {
+                showPage(hash);
             }
-            showPage(page);
         }
 
-        // --- Hamburger Menu Logic ---
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
-        hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        function closeMenu() {
-            mobileMenu.classList.add('hidden');
-        }
+        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        function closeMenu() { mobileMenu.classList.add('hidden'); }
         
-        // --- Form Logic ---
-        
-        // Character counter for contact form
-        const commentTextarea = document.getElementById('comment-text');
-        const charCount = document.getElementById('char-count');
-        
-        if (commentTextarea) {
-            commentTextarea.addEventListener('input', (e) => {
-                charCount.textContent = e.target.value.length;
-            });
-        }
-        
-        /**
-         * Simulates a newsletter subscription.
-         */
-        function subscribe(event) {
-            event.preventDefault();
-            const messageEl = document.getElementById('subscribe-message');
-            messageEl.classList.remove('hidden');
-            messageEl.classList.remove('text-red-300');
-            messageEl.classList.add('text-green-400');
-            messageEl.textContent = "Subscription simulated. You have entered the shadows.";
-            event.target.reset();
-        }
-
-        /**
-         * Simulates sending a comment via a mailto link.
-         */
-        function sendComment(event) {
-            event.preventDefault();
-            const messageEl = document.getElementById('comment-message');
-            const comment = document.getElementById('comment-text').value;
-            const targetEmail = 'writerkai@proton.me';
-            const subject = 'Message from subVert Website Visitor';
-
-            // Create the mailto link
-            const mailtoLink = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Visitor Message:\n\n' + comment)}`;
-
-            // Since we cannot actually submit the email without the user's interaction,
-            // we will simulate the success message, but *could* also open the mail client.
-            
-            // Option 1 (Simulate Success and inform the user it needs a backend for real submission):
-            messageEl.classList.remove('hidden');
-            messageEl.classList.remove('text-green-400');
-            messageEl.classList.add('text-red-300');
-            messageEl.textContent = "Message simulated. For true submission, this static site requires a backend integration (e.g., Netlify Forms or a server script). The mailto link is: " + targetEmail;
-            
-            // Option 2 (Open mail client - uncomment if desired, but can be intrusive):
-            // window.location.href = mailtoLink;
-            // messageEl.classList.remove('hidden');
-            // messageEl.classList.remove('text-red-300');
-            // messageEl.classList.add('text-green-400');
-            // messageEl.textContent = "Your local email client should open now. Click send to finalize the message.";
-
-            event.target.reset();
-            charCount.textContent = '0';
-        }
-
-        // Initialize the page on load and handle back/forward button history
         window.addEventListener('load', initializePage);
         window.addEventListener('popstate', initializePage);
     </script>
 </body>
 </html>
+
