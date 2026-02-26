@@ -124,35 +124,28 @@ button:hover{
 }
 
 /* ---- visuals section ---- */
-#visuals{
+#visuals {
   display: none;
 }
 
-.visual-grid{
+.visual-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  /* Change 220px to 460px to double the size */
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); 
+  gap: 24px; /* Slightly increased gap for better spacing with larger images */
 }
 
-.visual-grid img{
+/* Add this to ensure images don't look blurry if the container is huge */
+.visual-grid img {
   width: 100%;
+  max-width: 800px; /* Prevents them from becoming absurdly large on giant monitors */
+  margin: 0 auto;
   border-radius: 8px;
   border: 1px solid var(--border-soft);
   display: block;
 }
 
-.visual{
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
 
-.visual figcaption{
-  font-size: 12px;
-  color: var(--muted);
-  text-align: center;
-  letter-spacing: 0.4px;
-}
 
 
 /* ---- mobile ---- */
@@ -246,15 +239,8 @@ button:hover{
     <figcaption>Ty at the gallery 1</figcaption>
   </figure>
 
-  <figure class="visual">
-    <img src="images/ty_gallery2.png" alt="Ty — character vibe">
-    <figcaption>Ty at the gallery 2</figcaption>
-  </figure>
+
   
-  <figure class="visual">
-    <img src="images/embrace.png" alt="Ty — character vibe">
-    <figcaption>Ty and Ben</figcaption>
-  </figure>
 </div>
 
   </section>

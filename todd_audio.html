@@ -214,9 +214,10 @@ hr.custom1 {
   <p>
 <h2>Welcome to Todd Audio</h2>
 	<h3>** Full-Length Draft Audiobooks **</h3>
-	<h4><s>Cheap</s> <u>(free during Beta)</u> </h4>
-	<p>Producing expressive speech, using open source Coqui XTTS v2, Todd's freebie side project that aims to provide extended length AI-voiced narrations. Intended for budget-minded writers who want to listen/edit/proof their drafts.</p>
-				</div>
+	<p>Just a freebie side project to batch out expressive, extended length AI-voiced narration for fellow literary hobbyists who, like Todd, want to avoid the cost of premium TTS.</p>
+	<br><a href="#mp3" style="color: #dddddd;">Samples</a>
+	<br><br><a href="#faq" style="color: #dddddd;">FAQ</a>
+ 	</div>
   </div>
 
 
@@ -224,21 +225,21 @@ hr.custom1 {
     <div class="brand-text">
   <p>
 <h4>Beta Invitation - February 25, 2026</h4>
-<p>Todd the Kitty is looking for anyone interested in trying this out.
-<p>How it works: 1) choose a voice, either pick one from the samples below, or provide your own WAV; 2) send or give access to your manuscript as a markdown file. 
-	<p>We run it (offline during the Beta). The file is parsed and passed to Coqui XTTS v2 on a local onsite GPU to generate chapters in WAV and MP3 audio. We send them back.
-<p> What's Todd up to here? a) he's tired blowing his monthly Slurpie budget on ElevenLabs and wonders if this might be useful to other creatives; b) he's a fat, altruistic cat with too much time on his hands. (Answer: A)
-<br><p><h4>Email:  rufuslaguerre@proton.me</h4>
+<p>Todd the Kitty is looking for beta-testers, so let us know. Gratis.
+<p>How it works: 1) choose a voice, either pick one from the LibriTTS samples below, or provide your own WAV; 2) provide your manuscript as a markdown file. 
+	<p>We run it (offline, during the Beta); the file is parsed and passed to Coqui XTTS v2 on our local Ubuntu box (with CUDA GPU) to generate the audio in WAV and MP3.
+<p> What's Todd up to here? Pick one: a) He got tired of blowing his monthly Slurpie budget on ElevenLabs, and there was this spare GPU sitting in a box, he threw it into a desktop and installed XTTS v2, and now that it's working, he wondered it it might be useful to other members of the Codex Literati; or  b) He's a fat old cat with too much time on his hands.
 	
-<br><a href="#mp3" style="color: #dddddd;">Samples</a>
-<br><br><a href="#faq" style="color: #dddddd;">FAQ</a>
+	<p>Contact us on Discord or by email.
+<br><p><h4>Email:  rufuslaguerre@proton.me</h4>
 		</div>
   </div>
 
   <section class="release">
     <h2 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">Voices</h2>
-	<h4 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">  Coqui XTTS v2 requires a short (~10 seconds) voice sample to capture the speaker’s vocal fingerprint—tone, pitch, cadence, and texture—then applies those characteristics when generating the audiobook so that the spoken narration then approximates that voice. You can provide your own voice sample if you prefer.</h4>
-	<h5 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">(source: LibriTTS-R / LibriVox (Public Domain, for non-commercial use)</h5>
+	<h4 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">  Coqui XTTS v2 requires a short (~10 seconds) voice sample to capture the speaker’s vocal fingerprint—tone, pitch, cadence, and texture—then applies those characteristics when generating the audiobook so that the spoken narration then approximates that voice. You can provide your own voice sample if you prefer. 
+		<p>Todd likes Voice #260 when relaxing with a cognac and Milton's <i>Paradise Lost</i>. </h4>
+	<h5 style="font-family: 'Cinzel', serif; letter-spacing: 1px;">sourced from LibriTTS-R / LibriVox (Public Domain, for non-commercial use)</h5>
     <div class="table-container">
       <table>
         <thead>
@@ -387,26 +388,24 @@ hr.custom1 {
   
   <div class="brand-text" style="font-family: 'Cinzel', serif; letter-spacing: 1px;">
     <p>
+<br>
+<p>> <u>Is there a limit on the word count of the input Markdown file I provide?</u> Not really. I mean, don't send us the Mahābhārata or anything by Marcel Proust, but it'd be fun to try Joyce's Ulysses -- or War and Peace. For now, let's keep the runtimes within reason (under 4 hours) so for testing, a maximum of 150,000 words. For reference, a sample run of 46,000 words (The Turn of the Screw, by Henry James) took 65 minutes to generate a 5 hours and 23 minutes WAV (958MB) and MP3 (124MB).</p><br>
+
+<p>> <u>Why use markdown for input?</u> Markdown is a common near-text format. For example, Google Docs and Novelcrafter provide for direct export to Markdown. The convention for indicating Act and Chapter breaks with asterisks is used to separate a big input file into separate chapters and those are then submitted to the TTS. There are additional substitutions and fixes done in a pre-process step to reduce pronunciation and random artifacts. XTTS-v2 does not specifically “support” or “understand” Markdown. It just sees plain text.</p><br>
 
 <p>> <u>Will this produce a perfect, commercial-quality audiobook for me?</u> Nope, no way, and that's not the intended use. It's a throw-away, meant as an additional aid during editing and review. Also, depending on the voice and contents, the file is for personal (non-commercial) use only, not for upload to Audible. It's probably okay to send it to your mom (as long as you don't charge her).</p><br>
 
 <p>> <u>Can this generate audio in other languages besides English?</u> Yes, Coqui XTTS v2 supports many (16+) languages, but I have no experience so far. Regardless, Todd says he's happy to give it a try. There will be some testing required and the intake prep script will need to be updated to support TXT UTF-8 encoding.</p><br>
 
-<p>> <u>Can I provide my own narrator voice?</u> Yes. This is one of the advantages with XTTS v2, but you'll want to have a high fidelity voice 10 second sample. Contact us about this. XTTS v2 has some specific ways it wants voice sample WAV. The better the quality and specs of the sample file, the better the resulting generated audiobook. I am not a digital audiophile so the guidance I have (on using ffmpeg) comes straight from a bot.<p><br>
+<p>> <u>What's the turn-around time?</u> No idea. I'll try for just a day or two, but we running this manually for the time being. I hope to set up a fully automated "drop and go" mechanism, but no ETA on that.</p><br>
+
+<p>> <u>Can I provide my own narrator voice?</u> Yes. This is one of the advantages with XTTS v2, but you'll want to have a high fidelity voice 10 second sample. Contact us for some guidelines on this. XTTS v2 has some specific ways it wants voice sample WAV. The better the quality and specs of the sample file, the better the resulting generated audiobook. I am not a digital audiophile so the guidance I have (on using ffmpeg) comes straight from a bot.<p><br>
 
 <p>> <u>Is there a way to correct TTS word pronunciation glitches?</u> Yes, but this is a work in progress. The script already does a small set of expansions of common abbreviations (ex. Mr. to "Mister"). There is also a capability for a specific to your book lexicon so that specific un-phonetic words or ones with accent characters (ex. protégé) can be improved as to how they are handled by XTTS v2.</p><br>
 
-<p>> <u>How is the voice and audio quality?</u> Mostly okay. This is another ongoing work-in-progress (I know, that’s redundant (but accurate)). The quality of the ten second voice sample WAV that seeds XTTS v2 seems to matter a lot. We can query the technical specs of the file with ffmpeg to look at general characteristics but I'm sure there are other more subtle and nuanced technical factors that determine if the sample works well. We need a professional.</p><br> 
+<p>> <u>How is the voice and audio quality?</u> Mostly okay IMHO. This is another ongoing work-in-progress (I know, that’s redundant (but accurate)). The quality of the ten second voice sample WAV that seeds XTTS v2 seems to matter a lot. We can query the technical specs of the file with ffmpeg to look at general characteristics but I'm sure there are other more subtle and nuanced technical factors that determine if the sample works well. We need a professional.</p><br> 
 
 <p>> <u>Can we do revisions to improve the results?</u> Absolutely. Although the turnaround time will be variable. There will definitely be tuning and fix opportunities. (In the future we're planning an automated "revise and drop it in" for re-runs.)</p><br>
-
-<p>> <u>Is there a limit on the word count of the Markdown?</u> Not really at this point. It'd be fun to try Joyce's Ulysses or War and Peace; but yeah, I'd like to keep the file sizes and runtimes within reason (less than 4 hours). A sample run of 46,000 words (The Turn of the Screw, by Henry James) took 65 minutes to generate a 5 hours and 23 minutes WAV (958MB) and MP3 (124MB).</p><br>
-
-<p>> <u>Is my manuscript safe from theft?</u> As authors ourselves, we commit to keeping your IP  (Intellectual Property) files private and secure for the time we have them, and we will promptly and securely erase them (given that they'll be sitting in a restricted Google Drive or iCloud folder). While here, no one will read, "borrow", post, or duplicate your work. During this manual testing period, we'll spot check the audio but that's the extent of it. And while we're off on the legal tangent, and to state the obvious, please do not send us any material that is private, illegal, confidential, high value, government secrets from boxes in your bathroom, whatever...</p><br>
-
-<p>> <u>Why use markdown for input?</u> Markdown is a common near-text format. For example, Google Docs and Novelcrafter provide for direct export to Markdown. The convention for indicating Act and Chapter breaks with asterisks is used to separate a big input file into separate chapters and those are then submitted to the TTS. There are additional substitutions and fixes done in a pre-process step to reduce pronunciation and random artifacts. XTTS-v2 does not specifically “support” or “understand” Markdown. It just sees plain text.</p><br>
-
-<p>> <u>Any thoughts on a post-process Quality Control to check the quality of the audio output?</u> Thoughts? Yes. Reality? Not yet. We've some quick tests with Whisper (Open AI Speech to Text) where the output WAV is fed in to Whisper to convert the audio back to text and then do a "diff" to compare that with the input md file.  Results are "mixed".  This will always be an approximation comparison.</p><br>
 
 <p>> <u>Is a full novel delivered as a single MP3?</u> That's not the default behavior. The script looks for chapter breaks and will divy up each chapter and put it into a separate WAV file when generating audio. When the run is finished, we create MP3 files from the WAV since they are about one tenth the size. If you want to combine them, that seems easy with a utility like ffmpeg.</p><br>
 
@@ -414,6 +413,11 @@ hr.custom1 {
 
 
 <!--
+
+<p>> <u>Is my manuscript safe from theft?</u> As authors ourselves, we commit to keeping your IP  (Intellectual Property) files private and secure for the time we have them, and we will promptly and securely erase them (given that they'll be sitting in a restricted Google Drive or iCloud folder). While here, no one will read, "borrow", post, or duplicate your work. During this manual testing period, we'll spot check the audio but that's the extent of it. And while we're off on the legal tangent, and to state the obvious, please do not send us any material that is private, illegal, confidential, high value, government secrets from boxes in your bathroom, whatever...</p><br>
+
+<p>> <u>Any thoughts on a post-process Quality Control to check the quality of the audio output?</u> Thoughts? Yes. Reality? Not yet. We've some quick tests with Whisper (Open AI Speech to Text) where the output WAV is fed in to Whisper to convert the audio back to text and then do a "diff" to compare that with the input md file.  Results are "mixed".  This will always be an approximation comparison.</p><br>
+
 
 <p>> <u>What is Todd the Noble Kitty up to here?</u> Just a side project for meow, but maybe at some point, he'll kick the litter and take it further. For now, at least that expensive GPU he bought has some reason to turn on -- and then maybe produce something of use to others.<p><br>
 
@@ -491,6 +495,8 @@ hr.custom1 {
 </section>
 
     <img src="./images/todd_audio_logo2.png" alt="Todd Audio Logo2">
+    <img src="./images/todd_slurpie2.png" alt="Todd Audio slurpie">
+    <img src="./images/todd_slurpie1.png" alt="Todd Audio slurpie">
 
 
 
